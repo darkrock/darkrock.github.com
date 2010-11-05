@@ -7,7 +7,7 @@ BODY {
 }
 
 TD.TopRow {
-  background: #005DAC url("image/TopBackground.png");
+  background: #005DAC url("images/TopBackground.png");
   height: 119px;
   padding: 0px;
   margin: 0px;
@@ -18,11 +18,11 @@ TR.TopRow {
   padding: 0px;
   margin: 0px;
 }
-TD.TopRowLeft { background: url(image/TopLeft.png); background-repeat: no-repeat; background-position: left; }
-TD.TopRowRight { background: url(image/TopRightLogo.png); background-repeat: no-repeat; background-position: right; }
+TD.TopRowLeft { background: url(images/TopLeft.png); background-repeat: no-repeat; background-position: left; }
+TD.TopRowRight { background: url(images/TopRightLogo.png); background-repeat: no-repeat; background-position: right; }
 
 TD.MiddleRow {
-	background: #54AEE1 url("image/MiddleBackground.png");
+	background: #54AEE1 url("images/MiddleBackground.png");
 	height: 25px;
 	padding: 0px;
 	margin: 0px;
@@ -35,7 +35,7 @@ TR.MiddleRow {
 TD.MiddleRowLeft {   
 	horizontal-align: center;
 	text-align: center;
-	background: url(image/MiddleLeft.png); 
+	background: url(images/MiddleLeft.png); 
 	background-repeat: no-repeat; 
 	background-position: left; 
 	width: 273px;
@@ -43,7 +43,7 @@ TD.MiddleRowLeft {
 }
 
 TD.MainRow {
-	background: white url("image/MainLeft.png");
+	background: white url("images/MainLeft.png");
 	background-repeat: no-repeat;
 }
 
@@ -54,13 +54,13 @@ IMG.borderimg {
 	border: #000 1px solid;
 }
 
-TD.ActiveLeft { height: 21px; width: 6px; background: url(image/Buttons/ActiveLeft.png); background-position: center left; }
-TD.ActiveMiddle {  font-size: 10pt; height: 21px; vertical-align: middle; horizontal-align:center; background: url(image/Buttons/ActiveBackground.png); background-position: center left; color: #042C4A; }
-TD.ActiveRight { height: 21px; width: 6px; background: url(image/Buttons/ActiveRight.png); background-position: center right; }
+TD.ActiveLeft { height: 21px; width: 6px; background: url(images/Buttons/ActiveLeft.png); background-position: center left; }
+TD.ActiveMiddle {  font-size: 10pt; height: 21px; vertical-align: middle; horizontal-align:center; background: url(images/Buttons/ActiveBackground.png); background-position: center left; color: #042C4A; }
+TD.ActiveRight { height: 21px; width: 6px; background: url(images/Buttons/ActiveRight.png); background-position: center right; }
 
-TD.InactiveLeft { height: 21px; width: 6px; background: url(image/Buttons/InactiveLeft.png); background-position: center left; }
-TD.InactiveMiddle { font-size: 10pt; height: 21px; vertical-align: middle; horizontal-align:center; background: url(image/Buttons/InactiveBackground.png); background-position: center left; color: #042C4A; }
-TD.InactiveRight { height: 21px; width: 6px; background: url(image/Buttons/InactiveRight.png); background-position: center right; }
+TD.InactiveLeft { height: 21px; width: 6px; background: url(images/Buttons/InactiveLeft.png); background-position: center left; }
+TD.InactiveMiddle { font-size: 10pt; height: 21px; vertical-align: middle; horizontal-align:center; background: url(images/Buttons/InactiveBackground.png); background-position: center left; color: #042C4A; }
+TD.InactiveRight { height: 21px; width: 6px; background: url(images/Buttons/InactiveRight.png); background-position: center right; }
 
 TD.BlackRow {
   background: #000;
@@ -76,12 +76,12 @@ TD.MenuBar {
 	padding-left: 30px;
 }
 TD.MenuTop { 
-	background: url(image/Menu/MenuTop.png); 
+	background: url(images/Menu/MenuTop.png); 
 	height: 31px; 
 	width: 118px; 
 }
 TD.MenuBackground { 
-	background: url(image/Menu/MenuBackground.png); 
+	background: url(images/Menu/MenuBackground.png); 
 	background-repeat: repeat-y; 
 	text-align: left; 
 	padding: 5px; 
@@ -89,7 +89,7 @@ TD.MenuBackground {
 	width: 118px; 
 }
 TD.MenuBottom { 
-	background: url(image/Menu/MenuBottom.png); 
+	background: url(images/Menu/MenuBottom.png); 
 	height: 37px; 
 	width: 118px; 
 }
@@ -101,15 +101,15 @@ TD.MainCentreColumn {
 	text-align: center; 
 	width: 65px;
 }
-TD.MainTopLeft { width: 14px; height: 27px; background: url(image/Main/TopLeft.png); background-position: left; }
-TD.MainTop { height: 20px; background: url(image/Main/Top.png); }
-TD.MainTopRight { width: 14px; height: 27px; background: url(image/Main/TopRight.png); background-position: right; }
-TD.MainLeft { width: 14px; background: url(image/Main/Left.png); background-position: left; }
-TD.MainBackground { background: url(image/Main/Background.png); color: #535353; text-align: left; }
-TD.MainRight { width: 14px; background: url(image/Main/Right.png); background-position: right; }
-TD.MainBottomLeft { width: 14px; height: 24px; background: url(image/Main/BottomLeft.png); background-position: left; }
-TD.MainBottom { height: 24px; background: url(image/Main/Bottom.png); }
-TD.MainBottomRight { width: 14px; height: 24px; background: url(image/Main/BottomRight.png); background-position: right; }
+TD.MainTopLeft { width: 14px; height: 27px; background: url(images/Main/TopLeft.png); background-position: left; }
+TD.MainTop { height: 20px; background: url(images/Main/Top.png); }
+TD.MainTopRight { width: 14px; height: 27px; background: url(images/Main/TopRight.png); background-position: right; }
+TD.MainLeft { width: 14px; background: url(images/Main/Left.png); background-position: left; }
+TD.MainBackground { background: url(images/Main/Background.png); color: #535353; text-align: left; }
+TD.MainRight { width: 14px; background: url(images/Main/Right.png); background-position: right; }
+TD.MainBottomLeft { width: 14px; height: 24px; background: url(images/Main/BottomLeft.png); background-position: left; }
+TD.MainBottom { height: 24px; background: url(images/Main/Bottom.png); }
+TD.MainBottomRight { width: 14px; height: 24px; background: url(images/Main/BottomRight.png); background-position: right; }
 TD.MainCopyright {
 	font-size: 8pt;
 	text-align: center; 

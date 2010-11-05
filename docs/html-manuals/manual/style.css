@@ -51,9 +51,25 @@ I.emphasis {
 TT.monospace {
 }
 PRE.code {
-    border: 1px solid #000066; 
+    border: 1px solid #666666; 
     background-color: #EEEEFF; 
     margin-right: 5px; 
+    margin-left: 5px; 
+    padding: 10px;
+}
+PRE.code-linesright {
+    border-right: 1px solid #666666; 
+    border-top: 1px solid #666666; 
+    border-bottom: 1px solid #666666; 
+    background-color: #EEEEFF; 
+    margin-right: 5px; 
+    padding: 10px;
+}
+PRE.code-linesleft {
+    border-left: 1px solid #666666; 
+    border-top: 1px solid #666666; 
+    border-bottom: 1px solid #666666; 
+    background-color: #CCCCCC; 
     margin-left: 5px; 
     padding: 10px;
 }
@@ -63,10 +79,6 @@ BLOCKQUOTE.quote {
     margin-right: 15px; 
     margin-left: 15px; 
     padding: 15px;
-}
-BLOCKQUOTE.toc {
-    margin-left: 5px; 
-    padding-left: 5px;
 }
 STRIKE.strike {
     background-color: #FFDDDD;
@@ -80,4 +92,12 @@ LI.listItem {
 }
 P.listItemParagraph {
 }
-
+.footnote {
+	font-size: 50%;
+}
+.toc {
+    margin-left: 5px; 
+    padding-left: 5px;
+	border: 1px solid #000;
+	background-color: #FFF;
+}

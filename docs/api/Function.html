@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>class Function</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h2>class Function</h2>
+<p><b>Provided By</b>: <a href="file:/cention/lib/ferite/module-source/reflection.fec">reflection.fec</a></p>
+<p>Instances of this class are used to inspect Ferite functions </p>
+<a name="container_elements">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><b>class contents</b> [<i>NB. Highlighted attributes are static members</i>]</td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=mainrow>Functions</td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.constructor.2">constructor</a><b>(void,string)</b> - The constructor of the "Function" class </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.exec.0">exec</a><b>()</b> - Calls the function associated with this object </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.execWithArray.1">execWithArray</a><b>(array)</b> - Calls the function associated with this object </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.getParameterDetails.0">getParameterDetails</a><b>()</b> - Generates an array of the parameters the function expects </td></tr>
+</table></td></tr></table><br>
+<h4>Functions</h4>
+<a name="object.constructor.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>constructor</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>The constructor of the "Function" class </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function constructor( void o, string f ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>The constructor of the "Function" class can either be called with the absolute name of a function (eg. "Console.println") or with an object and the name of a method within the object (eg. Console.stdout, "printf"). The specified function will be associated with the newly created "Function" object. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: void <b>o</b> - The container the function is a member of (optional) </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>f</b> - The name of the function </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Example:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow><br />
+<div class="code">	<span class="keyw">class</span> TestClass {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">function</span> g( <span class="type">string</span> name ) {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+	}<br />
+	<br />
+	<span class="keyw">function</span> f( <span class="type">string</span> name ) {<br />
+	}<br />
+	<br />
+	<span class="type">object</span> t = <span class="keyw">new</span> TestClass();<br />
+	<span class="type">object</span> o = <span class="keyw">new</span> Function('f');<br />
+	<span class="type">object</span> p = <span class="keyw">new</span> Function(t, 'g');</div><br />
+</td></tr>
+</table></td></tr></table><br>
+<a name="object.exec.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>exec</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Calls the function associated with this object </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function exec( ... ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function calls the function associated with this "Function" object using the specified arguments. The value which the function returned is returned unchanged. If you want to pass the arguments as an array instead of as a variable argument list, see Function.execWithArray(). </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The value which the called function returned </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Example:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow><br />
+<div class="code">	<span class="keyw">function</span> f( <span class="type">string</span> name ) {<br />
+	}<br />
+	<span class="type">object</span> o = <span class="keyw">new</span> Function('f');<br />
+	o.exec( "Hi There" );</div><br />
+</td></tr>
+</table></td></tr></table><br>
+<a name="object.execWithArray.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>execWithArray</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Calls the function associated with this object </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function execWithArray( array params ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function calls the function associated with this "Function" object using the values in the specified array as the function arguments. The value which the function returned is returned unchanged. If you want to pass the arguments directly instead of as an array, see Function.exec(). </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: array <b>params</b> - The arguments to pass to the function </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The value which the called function returned </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Example:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow><br />
+<div class="code">	<span class="keyw">function</span> f( <span class="type">string</span> name ) {<br />
+	}<br />
+	<span class="type">object</span> o = <span class="keyw">new</span> Function('f');<br />
+	o.execWithArray( [ "Hi There" ] );</div><br />
+</td></tr>
+</table></td></tr></table><br>
+<a name="object.getParameterDetails.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>getParameterDetails</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Generates an array of the parameters the function expects </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function getParameterDetails( ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function generates an array of the parameters which the function associated with this Function object requires. The key strings are the names of the arguments and the values are the names of the arguments types as strings. Note that this function does not work well in conjunction with argument overloading. The returned argument array will describe the arguments of the first function the compiler encountered with a particular name, but there could be other functions with the same name but different arguments. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;An array of the parameters required by the function </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Example:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow><br />
+<div class="code">	<span class="keyw">function</span> f( <span class="type">string</span> name ) {<br />
+	}<br />
+	<span class="type">object</span> o = <span class="keyw">new</span> Function('f');<br />
+	<span class="type">array</span> params = o.getParameterDetails*); &raquo; params = [ 'name' => '<span class="type">string</span>' ]</div><br />
+</td></tr>
+</table></td></tr></table><br>
+<font face=arial size=2>Automatically generated at <i>10:10AM, Friday 05 November 2010</i> by <i>feritedoc</i>.</font>
+</body></html>

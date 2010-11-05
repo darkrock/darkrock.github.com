@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>class Obj</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h2>class Obj</h2>
+<p><b>Provided By</b>: <a href="file:../../src/ferite_obj.c">ferite_obj.c</a></p>
+<h4>Description</h4>
+<p>These set of functions are used to setup the base class 'Obj' within the ferite system. </p>
+<a name="container_elements">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><b>class contents</b> [<i>NB. Highlighted attributes are static members</i>]</td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=mainrow>Functions</td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.conformsToProtocol.1">conformsToProtocol</a><b>(void)</b> - Test to see if the object conforms to a protocol </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.copy.0">copy</a><b>()</b> - Return a copy of the object  </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.getClass.0">getClass</a><b>()</b> - Obtain a reference to the class that the object is instantiated from </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.hash.0">hash</a><b>()</b> - Create a hash key for the object </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.isSubclassofClass.1">isSubclassofClass</a><b>(void)</b> - Tests to see if the class is a subclass of the parameter </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.respondsToMethod.1">respondsToMethod</a><b>(string)</b> - Returns true if the object responds to the method name given </td></tr>
+</table></td></tr></table><br>
+<h4>Functions</h4>
+<a name="object.conformsToProtocol.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>conformsToProtocol</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Test to see if the object conforms to a protocol </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Tests to see if the object conforms to a specific protocol </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: void <b>protocol</b> - The protocol to test against </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;true on success false otherwise. </td></tr>
+</table></td></tr></table><br>
+<a name="object.copy.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>copy</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Return a copy of the object  </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function copy() </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A copy of the object and all it's values</td></tr>
+</table></td></tr></table><br>
+<a name="object.getClass.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>getClass</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Obtain a reference to the class that the object is instantiated from </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function getClass() </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A class </td></tr>
+</table></td></tr></table><br>
+<a name="object.hash.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>hash</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Create a hash key for the object </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function hash() </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A string containing a unique hash key for the object </td></tr>
+</table></td></tr></table><br>
+<a name="object.isSubclassofClass.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>isSubclassofClass</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Tests to see if the class is a subclass of the parameter </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: void <b>klass</b> - The class to check </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;true on success false otherwise. </td></tr>
+</table></td></tr></table><br>
+<a name="object.respondsToMethod.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>respondsToMethod</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Returns true if the object responds to the method name given </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>method</b> - The name of the method to look for </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;true if it responds </td></tr>
+</table></td></tr></table><br>
+<font face=arial size=2>Automatically generated at <i>10:58AM, Saturday 14 August 2010</i> by <i>feritedoc</i>.</font>
+</body></html>

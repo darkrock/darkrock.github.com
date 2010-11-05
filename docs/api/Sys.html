@@ -1,0 +1,274 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>namespace Sys</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h2>namespace Sys</h2>
+<p><b>Provided By</b>: <a href="file:/cention/lib/ferite/module-source/sys.fec">sys.fec</a></p>
+<p>The main system namespace, it provides a abstract system interface </p>
+<a name="container_elements">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><b>namespace contents</b></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=mainrow>Namespaces</td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="namespace.png" alt="namespace" style="vertical-align: middle;"> <a href="Sys.env.html">env</a> - Provides access to the enviroment the script runs in      </td></tr>
+<tr><td width="100%" valign=middle class=mainrow>Functions</td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.error.2">error</a><b>(string,number)</b> - Cause ferite to throw an exception </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.exit.1">exit</a><b>(number)</b> - Cause the script to cease executing and set the return value </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.gc.0">gc</a><b>()</b> - Force the garbage collector to be invoked     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.getBuildDate.0">getBuildDate</a><b>()</b> - Get the date the Engine was Built </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.getVersion.0">getVersion</a><b>()</b> - Get the version of the engine </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.scriptName.0">scriptName</a><b>()</b> - Get the name of the executing script </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.setlocale.2">setlocale</a><b>(number,string)</b> - Used to set the program's current locale </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.sleep.1">sleep</a><b>(number)</b> - Suspend execution for the specified number of seconds </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.stderr.0">stderr</a><b>()</b> - Get the stderr system stream for writing errors out to </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.stdin.0">stdin</a><b>()</b> - Get the stdin system stream for reading </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.stdout.0">stdout</a><b>()</b> - Get the stdout system stream for writing </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.strerror.1">strerror</a><b>(number)</b> - Convert an error return into a string </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.system.1">system</a><b>(string)</b> - Execute a command and wait for it to return </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.timestamp.0">timestamp</a><b>()</b> - Generate a double representing a timestamp including microseconds </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.usleep.1">usleep</a><b>(number)</b> - Suspend execution for microsecond intervals </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.warning.1">warning</a><b>(string)</b> - Cause ferite to issue an non-fatal warning </td></tr>
+<tr><td width="100%" valign=middle class=mainrow>Variables</td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#LC_ALL">LC_ALL</a> - For all of the locale	 </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#LC_MESSAGES">LC_MESSAGES</a> - For localizable natural-language messages	 </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#LC_NUMERIC">LC_NUMERIC</a> - For number formatting (such as the decimal point and the thousands separator)	 </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#LC_TIME">LC_TIME</a> - For time and date formatting	 </td></tr>
+</table></td></tr></table><br>
+<h4>Functions</h4>
+<a name="object.error.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>error</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Cause ferite to throw an exception </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function error( string message, number value ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>message</b> - The error message </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: number <b>value</b> - The error number     </td></tr>
+</table></td></tr></table><br>
+<a name="object.exit.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>exit</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Cause the script to cease executing and set the return value </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function exit( number retval ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>retval</b> - The value to return     </td></tr>
+</table></td></tr></table><br>
+<a name="object.gc.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>gc</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Force the garbage collector to be invoked     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function gc( ) </td></tr>
+</table></td></tr></table><br>
+<a name="object.getBuildDate.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>getBuildDate</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get the date the Engine was Built </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function getBuildDate( ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The date the Engine was Built     </td></tr>
+</table></td></tr></table><br>
+<a name="object.getVersion.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>getVersion</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get the version of the engine </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function getVersion( ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The version of the engine     </td></tr>
+</table></td></tr></table><br>
+<a name="object.scriptName.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>scriptName</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get the name of the executing script </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function scriptName( ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The name of the script     </td></tr>
+</table></td></tr></table><br>
+<a name="object.setlocale.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>setlocale</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Used to set the program's current locale </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;native function setlocale( number category, string locale ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>category</b> - can be any of Sys.LC_* </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>locale</b> - the locale	 </td></tr>
+</table></td></tr></table><br>
+<a name="object.sleep.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>sleep</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Suspend execution for the specified number of seconds </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function sleep(number secs) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function suspends execution for the specified number of seconds or until a signal interrupts it. If it was interrupted, the number of seconds remaining in the requested interval is returned.     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>secs</b> - The number of seconds to sleep for </td></tr>
+</table></td></tr></table><br>
+<a name="object.stderr.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>stderr</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get the stderr system stream for writing errors out to </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function stderr( ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A Sys.StdioStream     </td></tr>
+</table></td></tr></table><br>
+<a name="object.stdin.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>stdin</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get the stdin system stream for reading </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function stdin( ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A Sys.StdioStream     </td></tr>
+</table></td></tr></table><br>
+<a name="object.stdout.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>stdout</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get the stdout system stream for writing </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function stdout( ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A Sys.StdioStream     </td></tr>
+</table></td></tr></table><br>
+<a name="object.strerror.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>strerror</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Convert an error return into a string </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function strerror( number what ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>what</b> - The error number to convert </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;String containing the error     </td></tr>
+</table></td></tr></table><br>
+<a name="object.system.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>system</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Execute a command and wait for it to return </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function system( string cms ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>cms</b> - The command to run </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The return value from the program, -1 on error     </td></tr>
+</table></td></tr></table><br>
+<a name="object.timestamp.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>timestamp</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Generate a double representing a timestamp including microseconds </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function timestamp() </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The timestamp     </td></tr>
+</table></td></tr></table><br>
+<a name="object.usleep.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>usleep</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Suspend execution for microsecond intervals </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function usleep( number usecs ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>usecs</b> - number of microseconds to sleep     </td></tr>
+</table></td></tr></table><br>
+<a name="object.warning.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>warning</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Cause ferite to issue an non-fatal warning </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function warning( string message ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>message</b> - The warning to give     </td></tr>
+</table></td></tr></table><br>
+<h4>Variables</h4>
+<a name="LC_ALL">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>LC_ALL</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>For all of the locale	 </td></tr>
+</table></td></tr></table><br>
+<a name="LC_MESSAGES">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>LC_MESSAGES</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>For localizable natural-language messages	 </td></tr>
+</table></td></tr></table><br>
+<a name="LC_NUMERIC">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>LC_NUMERIC</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>For number formatting (such as the decimal point and the thousands separator)	 </td></tr>
+</table></td></tr></table><br>
+<a name="LC_TIME">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>LC_TIME</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>For time and date formatting	 </td></tr>
+</table></td></tr></table><br>
+<font face=arial size=2>Automatically generated at <i>10:10AM, Friday 05 November 2010</i> by <i>feritedoc</i>.</font>
+</body></html>

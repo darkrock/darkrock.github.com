@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>group Modules</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h2>group Modules </h2>
+<p><b>Provided By</b>: <a href="file:../../src/ferite_module.c">ferite_module.c</a></p>
+<h4>Description</h4>
+<p>This set of functions are useful for module writers. The module system provides                a uniform mechanism for loading native libraries and registering the functions                within the system. </p>
+<a name="container_elements">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><b>group contents</b></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=mainrow>Functions</td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.ferite_add_library_search_path.1">ferite_add_library_search_path</a><b>(char)</b> - Add a path to the list of paths that ferite searches for scripts </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.ferite_load_module.3">ferite_load_module</a><b>(FeriteScript,FeriteNamespace,char)</b> - Load a module (script or native) </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.ferite_module_add_preload.1">ferite_module_add_preload</a><b>(char)</b> - Add a module to the list of libraries that are loaded when a script is compiled </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.ferite_module_do_preload.1">ferite_module_do_preload</a><b>(FeriteScript)</b> - Preload the modules into the script </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.ferite_module_find.1">ferite_module_find</a><b>(char)</b> - Locate a module within the ferite runtime </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.ferite_module_find_function.1">ferite_module_find_function</a><b>(char)</b> - Locate a function pointer to the specified native function </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.ferite_module_register_fake_module.5">ferite_module_register_fake_module</a><b>(char,void,void,void,void)</b> - Register a fake native module. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.ferite_pop_library_native_search_path.0">ferite_pop_library_native_search_path</a><b>()</b> - Remove the last added native search path from the list of paths </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.ferite_pop_library_search_path.0">ferite_pop_library_search_path</a><b>()</b> - Remove the last added search path from the list of paths </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.ferite_set_library_native_path.1">ferite_set_library_native_path</a><b>(char)</b> - Set the path where ferite looks for the native libraries to load </td></tr>
+</table></td></tr></table><br>
+<h4>Functions</h4>
+<a name="object.ferite_add_library_search_path.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>ferite_add_library_search_path</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Add a path to the list of paths that ferite searches for scripts </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;void ferite_add_library_search_path( char *path ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Everytime a module is asked to be loaded, ferite will go through each of                the search paths within the system. By default there are no paths used                apart from the current directory. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: char <b>*path</b> - The path to add </td></tr>
+</table></td></tr></table><br>
+<a name="object.ferite_load_module.3">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>ferite_load_module</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Load a module (script or native) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;int ferite_load_module( FeriteScript *script, FeriteNamespace *ns, char *name ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: FeriteScript <b>*script</b> - The script to load the module into </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: FeriteNamespace <b>*ns</b> - The namespace in which the module will be loaded. If you are not sure                              which namespace to use, just pass in script->mainns </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #3: char <b>*name</b> - The name of the module </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;0 on fail, otherwise greater than 0 for sucess </td></tr>
+</table></td></tr></table><br>
+<a name="object.ferite_module_add_preload.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>ferite_module_add_preload</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Add a module to the list of libraries that are loaded when a script is compiled </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;void ferite_module_add_preload( char *name ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>When a script is compiled, the compiler will, before any script is loaded,                 go through the pre-load list and load each noted module. This is equivalent                to pre-pending the script to be loaded with a uses statement for each module.                <br />
+<br />
+                This function is often used to pre-load modules that you know a script needs                that the script may not load - such as a script running within an application. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: char <b>*name</b> - The name of the module </td></tr>
+</table></td></tr></table><br>
+<a name="object.ferite_module_do_preload.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>ferite_module_do_preload</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Preload the modules into the script </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;int ferite_module_do_preload( FeriteScript *script ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function, usually called from the compiler, will go through the pre-load                list created by calling ferite_module_add_preload, and compile them into the                script. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: FeriteScript <b>*script</b> - The script to load into </td></tr>
+</table></td></tr></table><br>
+<a name="object.ferite_module_find.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>ferite_module_find</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Locate a module within the ferite runtime </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;FeriteModule *ferite_module_find( char *name ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function is useful to find out if a module has been loaded within the ferite                system. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: char <b>*name</b> - The name of the module </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A FeriteModule pointer on success, NULL otherwise </td></tr>
+</table></td></tr></table><br>
+<a name="object.ferite_module_find_function.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>ferite_module_find_function</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Locate a function pointer to the specified native function </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;void *ferite_module_find_function( char *name  </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>The name of the function should be a dot separated path to the function, followed by                 an underscore and then a list of the types the function accepts. For instance a function                'f' within the class 'F' that takes a string, a void and a number would be specified by:                <div class="code">F.f_svn</div>. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: char <b>*name</b> - The name of the function to find </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A non-NULL pointer on success, NULL otherwise </td></tr>
+</table></td></tr></table><br>
+<a name="object.ferite_module_register_fake_module.5">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>ferite_module_register_fake_module</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Register a fake native module. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;void ferite_module_register_fake_module( char *name, void *_register, void *_unregister, void *_init, void *_deinit ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function is used to register fake modules from an application. This allows you to to setup a module to be loaded from an application. Combined with ferite_module_do_preload this will provide a method of exporting api to scripts using standard module methods. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: char <b>*name</b> - The name of the module. Even though this is a fake module it must be post fixed with the ".lib" extension. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: void <b>*_register</b> - A pointer to the register function - can be NULL </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #3: void <b>*_unregister</b> - A pointer to the unregister function - can be NULL </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #4: void <b>*_init</b> - A pointer to the init function - must not be NULL </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #5: void <b>*_deinit</b> - A pointer to the deinit function - must not be NULL </td></tr>
+</table></td></tr></table><br>
+<a name="object.ferite_pop_library_native_search_path.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>ferite_pop_library_native_search_path</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Remove the last added native search path from the list of paths </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;void ferite_pop_library_native_search_path() </td></tr>
+</table></td></tr></table><br>
+<a name="object.ferite_pop_library_search_path.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>ferite_pop_library_search_path</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Remove the last added search path from the list of paths </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;void ferite_pop_library_search_path() </td></tr>
+</table></td></tr></table><br>
+<a name="object.ferite_set_library_native_path.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>ferite_set_library_native_path</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Set the path where ferite looks for the native libraries to load </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;void ferite_set_library_native_path( char *path ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>The system uses multiple native search paths, this will add the path onto                 stack of paths used. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: char <b>*path</b> - The path where they libraries are located </td></tr>
+</table></td></tr></table><br>
+<font face=arial size=2>Automatically generated at <i>10:58AM, Saturday 14 August 2010</i> by <i>feritedoc</i>.</font>
+</body></html>

@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>namespace Network</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h2>namespace Network</h2>
+<p><b>Provided By</b>: <a href="file:/cention/lib/ferite/module-source/network.fec">network.fec</a></p>
+<a name="container_elements">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><b>namespace contents</b></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=mainrow>Namespaces</td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="namespace.png" alt="namespace" style="vertical-align: middle;"> <a href="Network.TCP.html">TCP</a> - TCP contains the tcp/ip specific functions and classes.     </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="namespace.png" alt="namespace" style="vertical-align: middle;"> <a href="Network.UDP.html">UDP</a> - The UDP namespace provides a set of tools to access udp streams </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="namespace.png" alt="namespace" style="vertical-align: middle;"> <a href="Network.Unix.html">Unix</a> - The Unix namespace provides a set of tools to access unix domain socket streams </td></tr>
+<tr><td width="100%" valign=middle class=mainrow>Classes</td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="class.png" alt="class" style="vertical-align: middle;"> <a href="Network.Host.html">Host</a> - Finds information about a network host </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="class.png" alt="class" style="vertical-align: middle;"> <a href="Network.Service.html">Service</a> - Stores information about a network service </td></tr>
+<tr><td width="100%" valign=middle class=mainrow>Functions</td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.getHostByName.2">getHostByName</a><b>(string,number)</b> - Returns a Network.Host object corresponding to the specified host </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.getHostname.0">getHostname</a><b>()</b> - Returns the system hostname as a string </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.getServiceByName.2">getServiceByName</a><b>(string,string)</b> - Returns a Service object corresponding to the specified service </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.getServiceByPort.2">getServiceByPort</a><b>(number,string)</b> - Returns a Service object corresponding to the specified service </td></tr>
+<tr><td width="100%" valign=middle class=mainrow>Variables</td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#AF_AUTO">AF_AUTO</a> - This tells a function to use IPV6 if possible or fall back on IPV4     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#AF_IPV4">AF_IPV4</a> - This is used to indicate that an IP address is a version 4 one.     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#AF_IPV6">AF_IPV6</a> - This is used to indicate that an IP address is a version 6 one.     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#ANY4">ANY4</a> - This is used as the mask on which to bind to any IPV4 network address     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#ANY6">ANY6</a> - This is used as the mask on which to bind to any IPV6 network address     </td></tr>
+</table></td></tr></table><br>
+<h4>Functions</h4>
+<a name="object.getHostByName.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>getHostByName</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Returns a Network.Host object corresponding to the specified host </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function getHostByName(string name, number proto) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function searches for the specified host.                     If it doesn't find a matching host, it returns NULL.     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>name</b> - The name of the host to look for </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: number <b>reverse</b> - Should the system do a reverse look up of each ip found ? </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A Network.Host object, or null on failure </td></tr>
+</table></td></tr></table><br>
+<a name="object.getHostname.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>getHostname</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Returns the system hostname as a string </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function getHostname() </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The system hostname     </td></tr>
+</table></td></tr></table><br>
+<a name="object.getServiceByName.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>getServiceByName</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Returns a Service object corresponding to the specified service </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function getServiceByName(string name, number proto) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function searches the system service database (typically stored in /etc/services) for a service with the specified name and protocol, and if it finds one, it returns the record as an instance of the class Network.Service. If it doesn't find a matching service, it returns NULL. The protocol should be a string, usually either "tcp" or "udp". Alternatively an empty string ("") means "any protocol". Note that if the name you search for is an alias, the name variable of the Service object which is returned will contain the primary name for the service instead of the name you searched for.     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>name</b> - The name of the service to look for </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>proto</b> - The protocol of the service to look for </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A Service object, or null on failure </td></tr>
+</table></td></tr></table><br>
+<a name="object.getServiceByPort.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>getServiceByPort</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Returns a Service object corresponding to the specified service </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function getServiceByPort(number port, number proto) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function searches the system service database (typically stored in /etc/services) for a service with the specified port number (in host byte order) and protocol, and if it finds one, it returns the record as an instance of the class Network.Service. If it doesn't find a matching service, it returns NULL. The protocol should be a string, usually either "tcp" or "udp". Alternatively an empty string ("") means "any protocol".     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>port</b> - The port number of the service to look for </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>proto</b> - The protocol of the service to look for </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A Service object, or null on failure </td></tr>
+</table></td></tr></table><br>
+<h4>Variables</h4>
+<a name="AF_AUTO">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>AF_AUTO</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>This tells a function to use IPV6 if possible or fall back on IPV4     </td></tr>
+</table></td></tr></table><br>
+<a name="AF_IPV4">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>AF_IPV4</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>This is used to indicate that an IP address is a version 4 one.     </td></tr>
+</table></td></tr></table><br>
+<a name="AF_IPV6">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>AF_IPV6</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>This is used to indicate that an IP address is a version 6 one.     </td></tr>
+</table></td></tr></table><br>
+<a name="ANY4">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> string  <b>ANY4</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>This is used as the mask on which to bind to any IPV4 network address     </td></tr>
+</table></td></tr></table><br>
+<a name="ANY6">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> string  <b>ANY6</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>This is used as the mask on which to bind to any IPV6 network address     </td></tr>
+</table></td></tr></table><br>
+<font face=arial size=2>Automatically generated at <i>10:10AM, Friday 05 November 2010</i> by <i>feritedoc</i>.</font>
+</body></html>

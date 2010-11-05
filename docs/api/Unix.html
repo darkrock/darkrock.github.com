@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>namespace Unix</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h2>namespace Unix</h2>
+<p><b>Provided By</b>: <a href="file:/cention/lib/ferite/module-source/unix.fec">unix.fec</a></p>
+<p>The main unix namespace, it provides a standard unix system interface </p>
+<a name="container_elements">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><b>namespace contents</b></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=mainrow>Classes</td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="class.png" alt="class" style="vertical-align: middle;"> <a href="Unix.SyslogStream.html">SyslogStream</a> - This is Stream returned by Unix.openlog( ). Do not create instances of this class directly.  </td></tr>
+<tr><td width="100%" valign=middle class=mainrow>Functions</td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.openlog.3">openlog</a><b>(string,number,number)</b> - Open a connection to syslog facility </td></tr>
+<tr><td width="100%" valign=middle class=mainrow>Variables</td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#LOG_AUTHPRIV">LOG_AUTHPRIV</a> - Authorisation/security log facility </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#LOG_CONS">LOG_CONS</a> - Log to the system console if unable to write to syslog </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#LOG_CRON">LOG_CRON</a> - Cron daemon log facility </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#LOG_DAEMON">LOG_DAEMON</a> - Daemon log facility </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#LOG_FTP">LOG_FTP</a> - FTP server log facility </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#LOG_KERN">LOG_KERN</a> - Kernel log facility </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#LOG_LOCAL0">LOG_LOCAL0</a> - Local log facility 0 </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#LOG_LPR">LOG_LPR</a> - Line printer subsystem log facility </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#LOG_MAIL">LOG_MAIL</a> - Mail system log facility </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#LOG_NDELAY">LOG_NDELAY</a> - Open the syslog connection immediately </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#LOG_NEWS">LOG_NEWS</a> - News server log facility </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#LOG_PERROR">LOG_PERROR</a> - Log to stderr as well as to the system log </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#LOG_PID">LOG_PID</a> - Include process ID with log messages </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#LOG_SYSLOG">LOG_SYSLOG</a> - Internal Syslog log facility </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#LOG_USER">LOG_USER</a> - User level log facility </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#LOG_UUCP">LOG_UUCP</a> - UUCP subsystem log facility </td></tr>
+</table></td></tr></table><br>
+<h4>Functions</h4>
+<a name="object.openlog.3">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>openlog</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Open a connection to syslog facility </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function openlog( string ident, number option, number facility ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>ident</b> - String that will be added to each message, usually the program name </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: number <b>option</b> - Options is an OR of the following: Unix.LOG_CONS, Unix.LOG_PID, Unix.LOG_NDELAY, Unix.LOG_PERROR </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #3: number <b>facility</b> - Describes what facility is logging. It can be any one of: Unix.LOG_KERN, Unix.LOG_USER, Unix.LOG_MAIL, Unix.LOG_DAEMON, Unix.LOG_SYSLOG, Unix.LOG_LPR, Unix.LOG_NEWS, Unix.LOG_UUCP, Unix.LOG_CRON, Unix.LOG_AUTHPRIV, Unix.LOG_FTP, or Unix.LOG_LOCAL0 to Unix.LOG_LOCAL7.     </td></tr>
+</table></td></tr></table><br>
+<h4>Variables</h4>
+<a name="LOG_AUTHPRIV">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>LOG_AUTHPRIV</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Authorisation/security log facility </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Specifying this value as the facility in an openlog() call will cause messages to be logged with a facility value indicating that they are concerning authorisation of users or general security issues.     </td></tr>
+</table></td></tr></table><br>
+<a name="LOG_CONS">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>LOG_CONS</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Log to the system console if unable to write to syslog </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Using this flag with openlog() causes log messages to be written to the system console if it is unable to write them to the system logger.     </td></tr>
+</table></td></tr></table><br>
+<a name="LOG_CRON">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>LOG_CRON</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Cron daemon log facility </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Specifying this value as the facility in an openlog() call will cause messages to be logged with a facility value indicating that they are from the Cron daemon. Not recommended unless you are reimplementing the cron daemon in Ferite.     </td></tr>
+</table></td></tr></table><br>
+<a name="LOG_DAEMON">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>LOG_DAEMON</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Daemon log facility </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Specifying this value as the facility in an openlog() call will cause messages to be logged with a facility value indicating that they come from any daemon which doesn't have a more specific facility number that it can use.     </td></tr>
+</table></td></tr></table><br>
+<a name="LOG_FTP">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>LOG_FTP</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>FTP server log facility </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Specifying this value as the facility in an openlog() call will cause messages to be logged with a facility value indicating that they are from the FTP server.     </td></tr>
+</table></td></tr></table><br>
+<a name="LOG_KERN">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>LOG_KERN</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Kernel log facility </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Specifying this value as the facility in an openlog() call will cause messages to be logged with a facility value indicating that they come from the system kernel. Not recommended unless you are reimplementing klogd in Ferite.     </td></tr>
+</table></td></tr></table><br>
+<a name="LOG_LOCAL0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>LOG_LOCAL0</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Local log facility 0 </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Specifying this value as the facility in an openlog() call will cause messages to be logged with a facility value indicating that they are from the locally chosen facility value number 0. There are seven other locally chosen values available (LOG_LOCAL1 to LOG_LOCAL7).     </td></tr>
+</table></td></tr></table><br>
+<a name="LOG_LPR">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>LOG_LPR</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Line printer subsystem log facility </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Specifying this value as the facility in an openlog() call will cause messages to be logged with a facility value indicating that they are from the line printer subsystem.     </td></tr>
+</table></td></tr></table><br>
+<a name="LOG_MAIL">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>LOG_MAIL</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Mail system log facility </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Specifying this value as the facility in an openlog() call will cause messages to be logged with a facility value indicating that they come from the email subsystem.     </td></tr>
+</table></td></tr></table><br>
+<a name="LOG_NDELAY">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>LOG_NDELAY</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Open the syslog connection immediately </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Using this flag with openlog() causes it to open the connection to the system logger instead of waiting until the first message is written to the log.     </td></tr>
+</table></td></tr></table><br>
+<a name="LOG_NEWS">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>LOG_NEWS</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>News server log facility </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Specifying this value as the facility in an openlog() call will cause messages to be logged with a facility value indicating that they are from the news server.     </td></tr>
+</table></td></tr></table><br>
+<a name="LOG_PERROR">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>LOG_PERROR</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Log to stderr as well as to the system log </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Using this flag with openlog() causes it to send log messages to stderr as well as to the system log.     </td></tr>
+</table></td></tr></table><br>
+<a name="LOG_PID">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>LOG_PID</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Include process ID with log messages </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Using this flag with openlog() causes the log messages it generates to include the process ID number.     </td></tr>
+</table></td></tr></table><br>
+<a name="LOG_SYSLOG">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>LOG_SYSLOG</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Internal Syslog log facility </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Specifying this value as the facility in an openlog() call will cause messages to be logged with a facility value indicating that they are internal messages from the Syslog system itself. Not recommended unless you are reimplementing the syslog daemon in Ferite.     </td></tr>
+</table></td></tr></table><br>
+<a name="LOG_USER">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>LOG_USER</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>User level log facility </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Specifying this value as the facility in an openlog() call will cause messages to be logged with a facility value indicating that they come from an ordinary user level program (not a daemon- use LOG_DAEMON for that).     </td></tr>
+</table></td></tr></table><br>
+<a name="LOG_UUCP">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>LOG_UUCP</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>UUCP subsystem log facility </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Specifying this value as the facility in an openlog() call will cause messages to be logged with a facility value indicating that they are from the UUCP subsystem.     </td></tr>
+</table></td></tr></table><br>
+<font face=arial size=2>Automatically generated at <i>10:10AM, Friday 05 November 2010</i> by <i>feritedoc</i>.</font>
+</body></html>

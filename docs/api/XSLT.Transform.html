@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>class XSLT.Transform</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h2>class Transform</h2>
+<p><b>Provided By</b>: <a href="file:/cention/lib/ferite/module-source/xslt.fec">xslt.fec</a></p>
+<p>The core class of the XSLT module, this class provides the mechanism for doing XSLT transformations. </p>
+<h4>Description</h4>
+<p>Objects from this class are instantiated with an xsl stylesheet and can be applied to more than	   one XML.TreeParser object. </p>
+<h4>Example</h4>
+<div class="code">         	   <span class="keyw">uses</span> "xml";<br />
+	   <span class="keyw">uses</span> "xslt";<br />
+	   <span class="keyw">uses</span> "console";<br />
+	   <br />
+	   <span class="type">object</span> stylesheet = <span class="keyw">new</span> XSLT.Trans<span class="keyw">f<span class="keyw">or</span></span>m("test.xsl");<br />
+	   <span class="type">object</span> parser = <span class="keyw">new</span> XML.TreeParser();<br />
+	   parser.parseFile("test.xml");<br />
+	   <br />
+	   stylesheet.apply( parser );<br />
+	   Console.println( "======== xslt toString() =======" );<br />
+	   Console.println( stylesheet.toString() );<br />
+	   <br />
+	   parser = stylesheet.getXMLTreeParser();<br />
+	   Console.println( "-------- parser toString() -----" );<br />
+	   Console.println( parser.toString() );</div><br />
+	   
+<a name="container_elements">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><b>class contents</b> [<i>NB. Highlighted attributes are static members</i>]</td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=mainrow>Functions</td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.apply.1">apply</a><b>(object)</b> - This will take an XML.TreeParser object and apply the xsl style sheet. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.constructor.1">constructor</a><b>(string)</b> - Create and load an instance of an xsl style sheet </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.getXMLTreeParser.0">getXMLTreeParser</a><b>()</b> - This will return an XML.TreeParser object with the style sheet applied. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.saveToFile.1">saveToFile</a><b>(string)</b> - This save an XML.TreeParser object represented as a string to disk </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.toString.0">toString</a><b>()</b> - This will return an XML.TreeParser object represented as a string. </td></tr>
+</table></td></tr></table><br>
+<h4>Functions</h4>
+<a name="object.apply.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>apply</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>This will take an XML.TreeParser object and apply the xsl style sheet. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function apply( object xml ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This does not change the TreeParser object. To get the new TreeParser  tree, you need to call getXMLTreeParser() </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: object <b>xml</b> - An XML.TreeParser object.         </td></tr>
+</table></td></tr></table><br>
+<a name="object.constructor.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>constructor</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Create and load an instance of an xsl style sheet </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function constructor( string xslt ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>xslt</b> - The path to the xslt style sheet to load. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;null if the stylesheet failed to load, an object otherwise	       </td></tr>
+</table></td></tr></table><br>
+<a name="object.getXMLTreeParser.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>getXMLTreeParser</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>This will return an XML.TreeParser object with the style sheet applied. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function getXMLTreeParser() </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;An XML.TreeParser object.         </td></tr>
+</table></td></tr></table><br>
+<a name="object.saveToFile.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>saveToFile</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>This save an XML.TreeParser object represented as a string to disk </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function saveToFile() </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>filename</b> - The path to the file you wish to save.         </td></tr>
+</table></td></tr></table><br>
+<a name="object.toString.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>toString</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>This will return an XML.TreeParser object represented as a string. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function toString() </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A string.         </td></tr>
+</table></td></tr></table><br>
+<font face=arial size=2>Automatically generated at <i>10:10AM, Friday 05 November 2010</i> by <i>feritedoc</i>.</font>
+</body></html>

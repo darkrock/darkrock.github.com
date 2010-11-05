@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>group ThreadGroup</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h2>group Thread Group </h2>
+<p><b>Provided By</b>: <a href="file:../../src/ferite_thread.c">ferite_thread.c</a></p>
+<p>This group of functions provides a set of thread safe functions for managing and tracking running threads.          They are mainly used to make sure that threads can validate the existence of other threads and so that the           main process thread of a ferite script wont exit until all running threads have ceased execution. </p>
+<a name="container_elements">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><b>group contents</b></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=mainrow>Functions</td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.ferite_create_thread_group.1">ferite_create_thread_group</a><b>(FeriteScript)</b> - Create a thread group structure </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.ferite_thread_group_attach.3">ferite_thread_group_attach</a><b>(FeriteScript,FeriteThreadGroup,FeriteThread)</b> - Attach a given FeriteThread to a thread group. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.ferite_thread_group_destroy.2">ferite_thread_group_destroy</a><b>(FeriteScript,FeriteThreadGroup)</b> - Destroy a thread group. This function blocks. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.ferite_thread_group_dettach.3">ferite_thread_group_dettach</a><b>(FeriteScript,FeriteThreadGroup,FeriteThread)</b> - Dettach a given FeriteThread from a thread group. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.ferite_thread_group_wait.2">ferite_thread_group_wait</a><b>(FeriteScript,FeriteThreadGroup)</b> - Block the calling process until all threads within the group have dettached. </td></tr>
+</table></td></tr></table><br>
+<h4>Functions</h4>
+<a name="object.ferite_create_thread_group.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>ferite_create_thread_group</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Create a thread group structure </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;FeriteThreadGroup *ferite_create_thread_group( FeriteScript *script ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: FeriteScript <b>*script</b> - The script context </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A pointer to a FeriteThreadGroup structure on success, NULL otherwise </td></tr>
+</table></td></tr></table><br>
+<a name="object.ferite_thread_group_attach.3">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>ferite_thread_group_attach</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Attach a given FeriteThread to a thread group. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;void ferite_thread_group_attach( FeriteScript *script, FeriteThreadGroup *group, FeriteThread *thread ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: FeriteScript <b>*script</b> - The script context </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: FeriteThreadGroup <b>*group</b> - The thread group to attach to </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #3: FeriteThread <b>*thread</b> - The thread to attach </td></tr>
+</table></td></tr></table><br>
+<a name="object.ferite_thread_group_destroy.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>ferite_thread_group_destroy</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Destroy a thread group. This function blocks. </td></tr>
+<tr><td width="100%" valign=middle class=warningrow><img src="warning.png" style="vertical-align: middle;"> Warning!</td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function will block the calling thread/process until all threads within the group have dettached from            the group/ </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;void ferite_thread_group_destroy( FeriteScript *script, FeriteThreadGroup *group ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: FeriteScript <b>*script</b> - The script context </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: FeriteThreadGroup <b>*group</b> - The thread group to cleanup </td></tr>
+</table></td></tr></table><br>
+<a name="object.ferite_thread_group_dettach.3">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>ferite_thread_group_dettach</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Dettach a given FeriteThread from a thread group. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;void ferite_thread_group_dettach( FeriteScript *script, FeriteThreadGroup *group, FeriteThread *thread ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: FeriteScript <b>*script</b> - The script context </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: FeriteThreadGroup <b>*group</b> - The thread group to dettach from </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #3: FeriteThread <b>*thread</b> - The thread to dettach </td></tr>
+</table></td></tr></table><br>
+<a name="object.ferite_thread_group_wait.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>ferite_thread_group_wait</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Block the calling process until all threads within the group have dettached. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;void ferite_thread_group_wait( FeriteScript *script, FeriteThreadGroup *group ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: FeriteScript <b>*script</b> - The script context </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: FeriteThreadGroup <b>*group</b> - The group to wait on </td></tr>
+</table></td></tr></table><br>
+<font face=arial size=2>Automatically generated at <i>10:58AM, Saturday 14 August 2010</i> by <i>feritedoc</i>.</font>
+</body></html>

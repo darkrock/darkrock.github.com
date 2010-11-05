@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>class Date</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h2>class Date</h2>
+<p><b>Provided By</b>: <a href="file:/cention/lib/ferite/module-source/date.fec">date.fec</a></p>
+<p>Provides a time object with which information can be gathered </p>
+<h4>Description</h4>
+<p>Do not create instances of this class directly, use Date.localDate(),                 Date.date(), or Date.parse() </p>
+<a name="container_elements">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><b>class contents</b> [<i>NB. Highlighted attributes are static members</i>]</td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=mainrow>Functions</td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#class.date.1">date</a><b>(number)</b> - Convert a long representation of time to an Date </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.format.1">format</a><b>(string)</b> - Generate a string from the time based upon formating supplied </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#class.GMTnow.0">GMTnow</a><b>()</b> - Get the current GMT time as a long  </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#class.localDate.1">localDate</a><b>(number)</b> - Convert a long representation expressed relative to the environment specified timezone </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#class.now.0">now</a><b>()</b> - Get the current time as a long </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#class.parse.2">parse</a><b>(string,string)</b> - Convert a string based upon a given format to a Date object </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.time.0">time</a><b>()</b> - Get the time of the instance object in long format </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#class.timezone.0">timezone</a><b>()</b> - Get the seconds West of GMT </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.toString.0">toString</a><b>()</b> - Get the time as a string </td></tr>
+</table></td></tr></table><br>
+<h4>Functions</h4>
+<a name="class.date.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=statictitle>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=statictitle>
+	<tr><td class=statictitle><img src="function.png" style="vertical-align: middle;"> static function <b>date</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Convert a long representation of time to an Date </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;static function date( number time ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>To get the current timestamp, use Date.now()    </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>time</b> - The time to use. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A Date object on success, null otherwise </td></tr>
+</table></td></tr></table><br>
+<a name="object.format.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>format</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Generate a string from the time based upon formating supplied </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function format( string fmt ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>The format is a string with the following delimiters in it:<br />
+<br />
+ %a     The abbreviated weekday name according to the  cur­ rent locale. <br />
+<br />
+ %A     The  full  weekday  name  according  to the current locale. <br />
+<br />
+ %b     The abbreviated month name according to the current locale. <br />
+<br />
+ %B     The  full  month  name  according  to  the  current locale. <br />
+<br />
+ %c     The preferred date and time representation for  the current locale. <br />
+<br />
+ %C     The century number (year/100) as a 2-digit integer. (SU) <br />
+<br />
+ %d     The day of the month as a decimal number (range  01 to 31). <br />
+<br />
+ %D     Equivalent  to  %m/%d/%y.  (Yecch  -  for Americans only.  Americans should note that  in  other  coun­ tries %d/%m/%y is rather common. This means that in international context this format is ambiguous  and should not be used.) (SU) <br />
+<br />
+ %e     Like  %d, the day of the month as a decimal number, but a leading zero is replaced by a space. (SU) <br />
+<br />
+ %E     Modifier: use alternative format, see below. (SU) <br />
+<br />
+ %F     Equivalent to %Y-%m-%d (the ISO 8601 date  format). (C99) <br />
+<br />
+ %G     The ISO 8601 year with century as a decimal number. The 4-digit year corresponding to the ISO week num­ ber  (see  %V).  This has the same format and value as %y, except that if the ISO week  number  belongs to  the  previous  or  next year, that year is used instead. (TZ) <br />
+<br />
+ %g     Like %G, but without century, i.e., with a  2-digit year (00-99). (TZ) <br />
+<br />
+ %h     Equivalent to %b. (SU) <br />
+<br />
+ %H     The  hour as a decimal number using a 24-hour clock (range 00 to 23). <br />
+<br />
+ %I     The hour as a decimal number using a 12-hour  clock (range 01 to 12). <br />
+<br />
+ %j     The  day of the year as a decimal number (range 001 to 366). <br />
+<br />
+ %k     The hour (24-hour clock) as a decimal number (range 0  to  23);  single digits are preceded by a blank. (See also %H.) (TZ) <br />
+<br />
+ %l     The hour (12-hour clock) as a decimal number (range 1  to  12);  single digits are preceded by a blank. (See also %I.) (TZ) <br />
+<br />
+ %m     The month as a decimal number (range 01 to 12). <br />
+<br />
+ %M     The minute as a decimal number (range 00 to 59). <br />
+<br />
+ %n     A newline character. (SU) <br />
+<br />
+ %O     Modifier: use alternative format, see below. (SU) <br />
+<br />
+ %p     Either AM' or PM' according  to  the  given  time value, or the corresponding strings for the current locale.  Noon is treated as pm'  and  midnight  as am'. <br />
+<br />
+ %P     Like  %p but in lowercase: am' or pm' or a corre­ sponding string for the current locale. (GNU) <br />
+<br />
+ %r     The time in a.m. or p.m. notation.   In  the  POSIX locale this is equivalent to %I:%M:%S %p'. (SU) <br />
+<br />
+ %R     The  time  in  24-hour notation (%H:%M). (SU) For a version including the seconds, see %T below. <br />
+<br />
+ %s     The number of seconds since the Epoch, i.e.,  since 1970-01-01 00:00:00 UTC. (TZ) <br />
+<br />
+ %S     The second as a decimal number (range 00 to 61). <br />
+<br />
+ %t     A tab character. (SU) <br />
+<br />
+ %T     The time in 24-hour notation (%H:%M:%S). (SU) <br />
+<br />
+ %u     The  day  of  the  week as a decimal, range 1 to 7, Monday being 1.  See also %w. (SU) <br />
+<br />
+ %U     The week number of the current year  as  a  decimal number,  range  00  to  53, starting with the first Sunday as the first day of week 01. See also %V and %W. <br />
+<br />
+ %V     The  ISO  8601:1988 week number of the current year as a decimal number, range 01 to 53, where  week  1 is  the  first week that has at least 4 days in the current year, and with Monday as the first  day  of the week. See also %U and %W. (SU) <br />
+<br />
+ %w     The  day  of  the  week as a decimal, range 0 to 6, Sunday being 0.  See also %u. <br />
+<br />
+ %W     The week number of the current year  as  a  decimal number,  range  00  to  53, starting with the first Monday as the first day of week 01. <br />
+<br />
+ %x     The preferred date representation for  the  current locale without the time. <br />
+<br />
+ %X     The  preferred  time representation for the current locale without the date. <br />
+<br />
+ %y     The year as a  decimal  number  without  a  century (range 00 to 99). <br />
+<br />
+ %Y     The year as a decimal number including the century. <br />
+<br />
+ %z     The time-zone as hour offset from GMT.  Required to emit  RFC822-conformant  dates (using "%a, %d %b %Y %H:%M:%S %z"). (GNU) <br />
+<br />
+ %Z     The time zone or name or abbreviation. <br />
+<br />
+ %+     The date and time in date(1) format. (TZ) <br />
+<br />
+ %%     A literal %' character.    </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>fmt</b> - The format of the time </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The string </td></tr>
+</table></td></tr></table><br>
+<a name="class.GMTnow.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=statictitle>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=statictitle>
+	<tr><td class=statictitle><img src="function.png" style="vertical-align: middle;"> static function <b>GMTnow</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get the current GMT time as a long  </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function GMTnow() </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The time as a number</td></tr>
+</table></td></tr></table><br>
+<a name="class.localDate.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=statictitle>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=statictitle>
+	<tr><td class=statictitle><img src="function.png" style="vertical-align: middle;"> static function <b>localDate</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Convert a long representation expressed relative to the environment specified timezone </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;static function localDate( number timestamp ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This takes note of daylight saving and other locale specific issues. It assumes that the time is in UTC and takes into accout the timezone the environment is in. To get                   the current timestamp, use Date.now()    </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>timestamp</b> - The time to convert </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A Date object on success, null otherwise </td></tr>
+</table></td></tr></table><br>
+<a name="class.now.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=statictitle>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=statictitle>
+	<tr><td class=statictitle><img src="function.png" style="vertical-align: middle;"> static function <b>now</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get the current time as a long </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function now( ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The time represented as a long    </td></tr>
+</table></td></tr></table><br>
+<a name="class.parse.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=statictitle>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=statictitle>
+	<tr><td class=statictitle><img src="function.png" style="vertical-align: middle;"> static function <b>parse</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Convert a string based upon a given format to a Date object </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;static function parse( string str, string fmt ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>str</b> - The string to convert </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>fmt</b> - The format of the string - see Date.format for codes </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A Date object on success, null otherwise    </td></tr>
+</table></td></tr></table><br>
+<a name="object.time.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>time</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get the time of the instance object in long format </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function time( ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The time represented as a long    </td></tr>
+</table></td></tr></table><br>
+<a name="class.timezone.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=statictitle>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=statictitle>
+	<tr><td class=statictitle><img src="function.png" style="vertical-align: middle;"> static function <b>timezone</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get the seconds West of GMT </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;static function timezone( ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The number of seconds    </td></tr>
+</table></td></tr></table><br>
+<a name="object.toString.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>toString</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get the time as a string </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function toString( ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>The string returned is in the form of "Wed Jun 30 21:49:08 1993\n"    </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The time represented as a string </td></tr>
+</table></td></tr></table><br>
+<font face=arial size=2>Automatically generated at <i>10:10AM, Friday 05 November 2010</i> by <i>feritedoc</i>.</font>
+</body></html>

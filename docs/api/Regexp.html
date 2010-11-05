@@ -1,0 +1,317 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>class Regexp</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h2>class Regexp</h2>
+<p><b>Provided By</b>: <a href="file:/cention/lib/ferite/module-source/regexp.fec">regexp.fec</a></p>
+<p>The core class of the regular expression engine. </p>
+<h4>Description</h4>
+<p>Regular expressions provide a very powerful method of matching, modifying and extractinginformation from strings. Using special syntax, code that would usually require line after line of special matching code can be summarised within a one line regular expression (from here on in referred to as a regex). ferite's regex's are providied by means of PCRE(Perl Compatible Regular Expressions, a C library that can be found at <a href="http://www.pcre.org">http://www.pcre.org</a>) and as a result are almost identical in use to Perl's. Regex's look like this: <p> <b>Example:</b> <p> <div class="code">Regexp.replace('1(2)3', input, '456');</div> <p> This one will match all occurrences of the string "123" and swap them with "456" <p> <div class="code">Regexp.replace('W(or(l))d', input, 'Ch\1ris\2');</div> <p> This is more complicated and will match occurrences of "World" and swap them with "Chorlrisl". The reason being is due to back ticks which are discussed soon. <p> There are three types of regular expression support and that is match, swap and split. They are used as follows: <p> <div class="code"> Regexp.match( 'expression to match', intput )<br />
+ Regexp.replace( 'expression to match', intput, 'replacement' )<br />
+ Regexp.split( 'expression to split with', intput )<br />
+ </div> <p> You can either use the quick methods metioned above or create regexp objects by  creating an object from the Regexp class.  <h4>Options</h4>  There are a number of options that can be used to modify the method that the regular expression's execution and processing. These can only be passed in when you create a manual Regexp object. The options are: <p> <ul> <li> <b>x</b> - This option allows the regular expression to be multi line, and also allows comments using the # character. This is useful for long regular expressions where it is important to remember what each individual part performs. <p> <div class="code"> <span class="type">object</span> r = <span class="keyw">new</span> Regexp('^(.*?) # Match Dots<br />
+ chris # Match Chris<br />
+ $', 'm' );</div> <p> </li>  <li> <b>s</b> - This allows the <b>. (dot meta character)</b> matching character to match  newlines (\n's). <p> </li>  <li> <b>m</b> - This gets the <b>^</b> and <b>$</b> meta characters to match at newlines  within the source string.  <p> <div class="code"><span class="type">object</span> r = <span class="keyw">new</span> Regexp('^(.*)$', 'm' );<br />
+ r.replaceAll( "Hello\nWorld\nFrom\nChris", "Foo" );</div> <p> The above regex will return "Foo\nFoo\nFoo\nFoo". <p> </li>  <li> <b>i</b> - This causes the regex engine to match cases without looking at the case of  characters being processed. Therefore a expression 'abc' will match 'ABC'. <p> </li>  <li> <b>g</b> - This forces all matches along a line to be matched. Normally it is only the  first occurance that is matched. The *All functions use this option. <p> </li><!--  <li> <b>o</b> - This causes the regular expression to be compiled at compile time rather than  runtime. This is useful for regular expressions that dont change but are used alot within  a script. <p> </li> -->  <li> <b>A</b> - The pattern will only match if it matches at the beginning of the string being  searched. This is equivalent to specifying ^ at the beginning of the regular expression. <p> </li>  <li><b>D</b> - This option allows the user to have only the <b>$</b> tie to the end of a  line when it is at the end of the regular expression. </li>  </ul>  <h4>Backticks and Capturing</h4> When brackets are used within a regular expression they capture the values when the expression matches. These can be used for two main purposes: either fetching the values through the match object function capture() or for use within the replace pattern. To use within the replacement expression you need to use backticks. <p> Backticks are used within the swap mode of the regular expressions. It allows you to used captured strings within string that should replace the matched expression.  They are used as follows: a '\' (back slash) followed by the number that you want to use. The example below will match all 3 digit numbers and reverse their ordering. <p> <div class="code">Regexp.replaceAll( '(\d)(\d)(\d)', input, '\3\2\1' );</div> <p> To work out what capture number to use, you need to count from left to right within the expression with each opening bracket being an increment. For a match object the counting starts at 0, with backticks it starts at 1.  <h4>More</h4> This is only a brief insight into regular expressions, and a suggested read is "Mastering Regular Expressions" by Jeffrey E. F. Friedl (published by O'Reilly), and that will tell you everything you need to know about regular expressions. :-) It is also suggested that the libpcre documentation is worth reading on <a href="http://www.pcre.org">http://www.pcre.org</a>.</p>
+<a name="container_elements">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><b>class contents</b> [<i>NB. Highlighted attributes are static members</i>]</td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=mainrow>Functions</td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.constructor.1">constructor</a><b>(string)</b> - Create a regular expression using the string passed into the class </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.constructor.2">constructor</a><b>(string,string)</b> - Create a regular expression using the string passed into the class </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.getRegexp.0">getRegexp</a><b>()</b> - Get the regular expression as a string </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.lastMatch.0">lastMatch</a><b>()</b> - Get the last sucessful match </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.match.1">match</a><b>(string)</b> - Run a match on a string </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#class.match.2">match</a><b>(string,string)</b> - A quick method of running a regular expression match on a string </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#class.matchAll.2">matchAll</a><b>(string,string)</b> - A quick method of running a regular expression match all matches on a string </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.matchAll.1">matchAll</a><b>(string)</b> - Run a match on a string, unlike match this function will return all matches </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.replace.2">replace</a><b>(string,string)</b> - Replace the first match in a string </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#class.replace.3">replace</a><b>(string,string,string)</b> - A quick method of running a regular expression replace on the first match on a string </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.replace.1">replace</a><b>(string)</b> - Replace the first match in a string </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.replaceAll.1">replaceAll</a><b>(string)</b> - Replace the all of the matches in a string </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.replaceAll.2">replaceAll</a><b>(string,string)</b> - Replace all of the matches in a string </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#class.replaceAll.3">replaceAll</a><b>(string,string,string)</b> - A quick method of running a regular expression replace on all matches on a string </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#class.split.2">split</a><b>(string,string)</b> - A quick method of splitting a string up using a regexp as the delimeter </td></tr>
+</table></td></tr></table><br>
+<h4>Functions</h4>
+<a name="object.constructor.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>constructor</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Create a regular expression using the string passed into the class </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function constructor( string regexp ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>regexp</b> - The regular expression to compile </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The regular expression object	 </td></tr>
+</table></td></tr></table><br>
+<a name="object.constructor.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>constructor</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Create a regular expression using the string passed into the class </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function constructor( string regexp, string flags ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>regexp</b> - The regular expression to compile </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>flags</b> - The flags to use when compiling and executing an expression </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The regular expression object	 </td></tr>
+</table></td></tr></table><br>
+<a name="object.getRegexp.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>getRegexp</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get the regular expression as a string </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp; function getRegexp() </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The expression as a string	 </td></tr>
+</table></td></tr></table><br>
+<a name="object.lastMatch.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>lastMatch</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get the last sucessful match </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function lastMatch() </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The last match or null otherwise	 </td></tr>
+</table></td></tr></table><br>
+<a name="object.match.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>match</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Run a match on a string </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function match( string str ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>It possible to give this call a closure to handle the match. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>str</b> - The string to execute the regular expression on </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A match object or null if no match </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Example:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow><br />
+ <div class="code">object o = new Regexp( '([0-9]+)' );<br />
+ o.match( "123 456 789 345" ) using ( match ) {<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;Console.println( "Got match: '${match.match()}' in range '${match.span()}'" );<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;Console.println( " captures: ${match.captures()}\n" );<br />
+ };</div> <br />
+ The above example will only match 123.	 </td></tr>
+</table></td></tr></table><br>
+<a name="class.match.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=statictitle>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=statictitle>
+	<tr><td class=statictitle><img src="function.png" style="vertical-align: middle;"> static function <b>match</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>A quick method of running a regular expression match on a string </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;static function match( string regexp, string container ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>regexp</b> - The regular expression to compile and use </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>container</b> - The string to match against </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A match object, or null otherwise	 </td></tr>
+</table></td></tr></table><br>
+<a name="class.matchAll.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=statictitle>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=statictitle>
+	<tr><td class=statictitle><img src="function.png" style="vertical-align: middle;"> static function <b>matchAll</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>A quick method of running a regular expression match all matches on a string </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;static function matchAll( string regexp, string container ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>regexp</b> - The regular expression to compile and use </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>container</b> - The string to match against </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;An array of match objects	 </td></tr>
+</table></td></tr></table><br>
+<a name="object.matchAll.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>matchAll</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Run a match on a string, unlike match this function will return all matches </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function matchAll( string str ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>It possible to give this call a closure to handle the match.  </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>str</b> - The string to execute the regular expression on </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;An array of match objects or null if no match </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Example:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow><br />
+ <div class="code">object o = new Regexp( '([0-9]+)' );<br />
+ o.matchAll( "123 456 789 345" ) using ( match ) {<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;Console.println( "Got match: '${match.match()}' in range '${match.span()}'" );<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;Console.println( " captures: ${match.captures()}\n" );<br />
+ };</div> <br />
+ The above example will match '123', '456', '789' and '345'.	 </td></tr>
+</table></td></tr></table><br>
+<a name="object.replace.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>replace</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Replace the first match in a string </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function replace( string str, string replacement ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function can't take a closure.  </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>str</b> - The string to run the replace on </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>replacement</b> - The string to replace matches with, if empty, and a closure is provided, it'll use the closure's return value for the replacement. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A string combing the original with the replacements </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Example:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow><br />
+ <div class="code">object o = new Regexp( "([0-9]+)" );<br />
+ string replaced = o.replace( "1234 is the 123456", "LargeNumbers" );</div> <br />
+ The result of the above code will be 'LargeNumbers is the 123456'	 </td></tr>
+</table></td></tr></table><br>
+<a name="class.replace.3">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=statictitle>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=statictitle>
+	<tr><td class=statictitle><img src="function.png" style="vertical-align: middle;"> static function <b>replace</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>A quick method of running a regular expression replace on the first match on a string </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;static function replace( string regexp, string container, string replacement ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>regexp</b> - The regular expression to compile and use </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>container</b> - The string to match against </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #3: string <b>replacement</b> - The string to swap for the match. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The string container with all matches swap with replacement	 </td></tr>
+</table></td></tr></table><br>
+<a name="object.replace.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>replace</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Replace the first match in a string </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function replace( string str ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function can takes a closure, the return of the closure is used in the replacement. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>str</b> - The string to run the replace on </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A string combing the original with the replacements </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Example:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow><br />
+ <div class="code">object o = new Regexp( "([0-9]+)" );<br />
+ string replaced = o.replace( "1234 is the 123456" ) using ( match ) {<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;return "${match.match()}.feriteRocks";<br />
+ };</div> <br />
+ The result of the above code will be '1234.feriteRocks is the 123456'	 </td></tr>
+</table></td></tr></table><br>
+<a name="object.replaceAll.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>replaceAll</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Replace the all of the matches in a string </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function replaceAll( string str ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function can takes a closure, the return of the closure is used in the replacement. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>str</b> - The string to run the replace on </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A string combing the original with the replacements </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Example:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow><br />
+ <div class="code">object o = new Regexp( "([0-9]+)" );<br />
+ string replaced = o.replaceAll( "1234 is the 123456" ) using ( match ) {<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;return "${match.match()}.feriteRocks";<br />
+ };</div> <br />
+ The result of the above code will be '1234.feriteRocks is the 123456.feriteRocks'	 </td></tr>
+</table></td></tr></table><br>
+<a name="object.replaceAll.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>replaceAll</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Replace all of the matches in a string </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function replaceAll( string str, string replacement ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function can't take a closure. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>str</b> - The string to run the replace on </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>replacement</b> - The string to replace matches with, if empty, and a closure is provided, it'll use the closure's return value for the replacement. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A string combing the original with the replacements </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Example:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow><br />
+ <div class="code">object o = new Regexp( "([0-9]+)" );<br />
+ string replaced = o.replace( "1234 is the 123456", "LargeNumbers" );</div> <br />
+ The result of the above code will be 'LargeNumbers is the LargeNumbers'	 </td></tr>
+</table></td></tr></table><br>
+<a name="class.replaceAll.3">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=statictitle>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=statictitle>
+	<tr><td class=statictitle><img src="function.png" style="vertical-align: middle;"> static function <b>replaceAll</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>A quick method of running a regular expression replace on all matches on a string </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;static function replaceAll( string regexp, string container, string replacement ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>regexp</b> - The regular expression to compile and use </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>container</b> - The string to match against </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #3: string <b>replacement</b> - The string to swap for the match. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The string container with all matches swap with replacement	 </td></tr>
+</table></td></tr></table><br>
+<a name="class.split.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=statictitle>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=statictitle>
+	<tr><td class=statictitle><img src="function.png" style="vertical-align: middle;"> static function <b>split</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>A quick method of splitting a string up using a regexp as the delimeter </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;static function split( string regexp, string line ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>regexp</b> - The regular expression to compile and use </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>container</b> - The string to match against </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;An array of strings </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Example:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow><div class="code"><tt>uses</tt> "console", "regexp";<br />
+<br />
+Console.println( Regexp.split( ",", "x,x,,;t t" ) ); &raquo [ "x", "x", "", ";t t" ]<br />
+</div><br />
+	 </td></tr>
+</table></td></tr></table><br>
+<font face=arial size=2>Automatically generated at <i>10:10AM, Friday 05 November 2010</i> by <i>feritedoc</i>.</font>
+</body></html>

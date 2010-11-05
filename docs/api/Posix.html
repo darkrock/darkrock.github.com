@@ -1,0 +1,935 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>namespace Posix</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h2>namespace Posix</h2>
+<p><b>Provided By</b>: <a href="file:/cention/lib/ferite/module-source/posix.fec">posix.fec</a></p>
+<a name="container_elements">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><b>namespace contents</b></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=mainrow>Classes</td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="class.png" alt="class" style="vertical-align: middle;"> <a href="Posix.Pipe.html">Pipe</a> - This class provides a means for talking to a forked child process </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="class.png" alt="class" style="vertical-align: middle;"> <a href="Posix.ProcessStream.html">ProcessStream</a> - This class provides a means for reading or writing to another process </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="class.png" alt="class" style="vertical-align: middle;"> <a href="Posix.Rlimit.html">Rlimit</a> - Allows you to get and set resource limits </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="class.png" alt="class" style="vertical-align: middle;"> <a href="Posix.Rusage.html">Rusage</a> - Get the resource usage of this process or all dead child processes </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="class.png" alt="class" style="vertical-align: middle;"> <a href="Posix.SelectResult.html">SelectResult</a> - Returned by Posix.select() </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="class.png" alt="class" style="vertical-align: middle;"> <a href="Posix.Stat.html">Stat</a> - Provides functions to interrogate the information returned after a Posix.stat or Posix.lstat call     </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="class.png" alt="class" style="vertical-align: middle;"> <a href="Posix.Uname.html">Uname</a> - This class provides various system information </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="class.png" alt="class" style="vertical-align: middle;"> <a href="Posix.User.html">User</a> - Class to wrap the information about a user     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow>Functions</td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.access.2">access</a><b>(string,string)</b> - Tests the accessibility of the specified path </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.chmod.2">chmod</a><b>(string,number)</b> - Changes the permission bits of the specified file </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.chown.3">chown</a><b>(string,number,number)</b> - Changes the owner and/or the group ID of the specified file </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.chroot.1">chroot</a><b>(string)</b> - Changes the root directory to the specified path </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.exec.1">exec</a><b>(string)</b> - Starts a new program, replacing the current one </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.fork.0">fork</a><b>()</b> - Causes the process to fork a child </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.getegid.0">getegid</a><b>()</b> - Get the effective group id of the running process </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.geteuid.0">geteuid</a><b>()</b> - Get the effective user id of the running process </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.getgid.0">getgid</a><b>()</b> - Get the real group id of the running process </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.getpid.0">getpid</a><b>()</b> - Get the process ID of the running process </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.getppid.0">getppid</a><b>()</b> - Get the process ID of the parent of the running process </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.getPriority.2">getPriority</a><b>(number,number)</b> - Get the scheduling priority </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.getuid.0">getuid</a><b>()</b> - Get the real user id of the running process </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.hardlink.2">hardlink</a><b>(string,string)</b> - Create a hardlink from one location to another </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.ignoreSignal.1">ignoreSignal</a><b>(number)</b> - Causes the specified signal to be ignored </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.kill.2">kill</a><b>(number,number)</b> - sends the specified signal to the specified process(es) </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.lstat.1">lstat</a><b>(string)</b> - Gather information about a specified file </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.mkfifo.2">mkfifo</a><b>(string,number)</b> - creates a FIFO special file </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.openprocess.2">openprocess</a><b>(string,mstring)</b> - Open a process for communication using pipes </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.registerSigHandler.3">registerSigHandler</a><b>(number,string,object)</b> - registers the specified function as a signal handler </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.resetSigAction.1">resetSigAction</a><b>(number)</b> - Resets the specified signal to the default action </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.select.4">select</a><b>(array,array,array,number)</b> - </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.setgid.1">setgid</a><b>(number)</b> - Sets the effective group ID </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.setPriority.3">setPriority</a><b>(number,number,number)</b> - Set the scheduling priority </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.setsid.0">setsid</a><b>()</b> - Creates a new session </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.setuid.1">setuid</a><b>(number)</b> - Sets the effective user ID </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.softlink.2">softlink</a><b>(string,string)</b> - Create a hardlink from one location to another </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.stat.1">stat</a><b>(string)</b> - Gather information about a specified file </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.umask.1">umask</a><b>(number)</b> - sets the umask to mask & 0777 </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.userInfo.1">userInfo</a><b>(number)</b> - Get a Posix.User object with the information about the user </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.utime.3">utime</a><b>(string,number,number)</b> - Sets the access and modification times of the specified file </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.waitpid.2">waitpid</a><b>(number,number)</b> - Waits for a child process to terminate </td></tr>
+<tr><td width="100%" valign=middle class=mainrow>Variables</td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#PRIO_PGRP">PRIO_PGRP</a> - Get/set the priority of a process group     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#PRIO_PROCESS">PRIO_PROCESS</a> - Get/set the priority of a process     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#PRIO_USER">PRIO_USER</a> - Get/set the priority of a user     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#RLIM_INFINITY">RLIM_INFINITY</a> - Special resource limit value which means "no limit"      </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#RLIMIT_CPU">RLIMIT_CPU</a> - Resource limit on CPU time in seconds     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#RLIMIT_DATA">RLIMIT_DATA</a> - Resource limit on size of data segment     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#RLIMIT_FSIZE">RLIMIT_FSIZE</a> - Resource limit on file size     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#RLIMIT_LOCKS">RLIMIT_LOCKS</a> - Resource limit on number of file locks     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#RLIMIT_MEMLOCK">RLIMIT_MEMLOCK</a> - Resource limit on number of bytes of memory to lock into RAM     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#RLIMIT_NOFILE">RLIMIT_NOFILE</a> - Resource limit on number of open files     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#RLIMIT_NPROC">RLIMIT_NPROC</a> - Resource limit on number of processes current UID can have     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#RLIMIT_RSS">RLIMIT_RSS</a> - Resource limit on maximum RSS size in pages     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#RLIMIT_STACK">RLIMIT_STACK</a> - Resource limit on maximum stack size in bytes     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGABRT">SIGABRT</a> - Abort signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGALRM">SIGALRM</a> - Alarm signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGBUS">SIGBUS</a> - Bus error signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGCHLD">SIGCHLD</a> - Child terminated signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGCONT">SIGCONT</a> - Continue signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGFPE">SIGFPE</a> - Floating Point Exception signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGHUP">SIGHUP</a> - Hang Up signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGILL">SIGILL</a> - Illegal Instruction signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGINT">SIGINT</a> - Interrupt signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGIO">SIGIO</a> - I/O now possible signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGKILL">SIGKILL</a> - Kill signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGPIPE">SIGPIPE</a> - Broken Pipe signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGPROF">SIGPROF</a> - Profiling timer signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGQUIT">SIGQUIT</a> - Quit signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGSEGV">SIGSEGV</a> - Segmentation Fault signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGSTKFLT">SIGSTKFLT</a> - Stack fault signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGSTOP">SIGSTOP</a> - Stop signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGTERM">SIGTERM</a> - Terminate signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGTRAP">SIGTRAP</a> - Trap signal (used for breakpoints)     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGTSTP">SIGTSTP</a> - Terminal stop signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGTTIN">SIGTTIN</a> - Terminal input without a controlling terminal signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGTTOU">SIGTTOU</a> - Terminal output without a controlling terminal signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGURG">SIGURG</a> - Urgent data on a socket signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGUSR1">SIGUSR1</a> - User defined signal 1     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGUSR2">SIGUSR2</a> - User defined signal 2     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGVTALRM">SIGVTALRM</a> - Virtual alarm clock signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGWINCH">SIGWINCH</a> - Window size change signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGXCPU">SIGXCPU</a> - CPU time limit exceeded signal     </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#SIGXFSZ">SIGXFSZ</a> - File size limit exceeded signal     </td></tr>
+</table></td></tr></table><br>
+<h4>Functions</h4>
+<a name="object.access.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>access</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Tests the accessibility of the specified path </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function access(string pathname, string modes) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Use this function to check if the current process is allowed to read, write to, or execute the specified path, or merely to check for its existance. Which tests to perform is controlled by the modes string, which is a list of one or more of the following letters: r = test for read access; w = test for write access; x = test for execute access; f = test for existance. Any other letters in the mode string are ignored. On success (ie. all of the tests passed), true is returned. On failure of at least one of the tests, false is returned.     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>pathname</b> - The location of the file or directory to test </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>modes</b> - The list of different access modes to test for </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;true if all the tests passed, false if any of them failed </td></tr>
+</table></td></tr></table><br>
+<a name="object.chmod.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>chmod</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Changes the permission bits of the specified file </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function chmod(string filename, number mode) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function attempts to change the permission flags of the specified file to the specified value. If the file is a symbolic link, it changes the permissions of the file the link points to rather than the link itself. On failure, false is returned and err.str is set. The permissions flags are typically specified as a three digit octal number (eg. 0666).     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>filename</b> - The name of the file to change the permissions of </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: number <b>mode</b> - The permission bits to give the file </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;True on success and false on failure </td></tr>
+</table></td></tr></table><br>
+<a name="object.chown.3">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>chown</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Changes the owner and/or the group ID of the specified file </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function chown(string filename, number uid, number gid) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function attempts to change the owner and/or the group of the specified file. Only root can change the owner of a file, but the owner of a file can change its group to any group of which they are a member. If -1 is specified for either the user ID or the group ID, chown does not attempt to change that parameter. If the call fails, it returns false and sets err.str.     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>filename</b> - The name of the file to change the owner/group of </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: number <b>uid</b> - The ID of the new owner of the file or -1 </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #3: number <b>gid</b> - The ID of the new group of the file or -1 </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;True on success and false on failure </td></tr>
+</table></td></tr></table><br>
+<a name="object.chroot.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>chroot</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Changes the root directory to the specified path </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function chroot(string path) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function changes the root directory of the current process to the specified path. Note that you must be root in order to call this function, it does not  automatically change the working directory to the new root directory, and that the root user can easily break out of the new root. If you are doing the chroot for security reasons, it is usual to setuid() to a different user straight after the chroot() in order to make it much harder to escape from the chroot jail. Returns false if the call fails.     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>path</b> - The path to change the root directory to </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;True on success and false on failure </td></tr>
+</table></td></tr></table><br>
+<a name="object.exec.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>exec</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Starts a new program, replacing the current one </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function exec(string filename, array argv, array env) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function attempts to execute the specified filename. The system path is not searched for the file. By convention, the first string in the argv array is the name of the program without the path to it. To use the current environment instead of creating a new one, you can use Sys.env.toArray() to retrieve it.     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>filename</b> - The name of the file to execute </td></tr>
+</table></td></tr></table><br>
+<a name="object.fork.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>fork</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Causes the process to fork a child </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function fork( ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Forks a child process from the current running process. If the fork succeeds it returns the PID of the child process (always a non-zero positive integer) to the parent and 0 to the child. If the fork fails, it returns -1 to the parent.     </td></tr>
+</table></td></tr></table><br>
+<a name="object.getegid.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>getegid</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get the effective group id of the running process </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function getegid( ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The effective group id     </td></tr>
+</table></td></tr></table><br>
+<a name="object.geteuid.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>geteuid</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get the effective user id of the running process </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function geteuid( ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The effective user id     </td></tr>
+</table></td></tr></table><br>
+<a name="object.getgid.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>getgid</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get the real group id of the running process </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function getgid( ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The real group id     </td></tr>
+</table></td></tr></table><br>
+<a name="object.getpid.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>getpid</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get the process ID of the running process </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function getpid() </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The process ID     </td></tr>
+</table></td></tr></table><br>
+<a name="object.getppid.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>getppid</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get the process ID of the parent of the running process </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function getppid() </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The process ID of the parent     </td></tr>
+</table></td></tr></table><br>
+<a name="object.getPriority.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>getPriority</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get the scheduling priority </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function getPriority(number which, number who) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function returns the scheduler priority of the specified process, process group, or user (set the which argument to Posix.PRIO_PROCESS, Posix.PRIO_PGRP, or Posix.PRIO_USER to choose which one). The who argument can be either the ID of the specified process, process group or user, or it can be 0 which is taken to mean the calling process, the process group of the calling process, or the real user ID of the calling process. The return value is typically in the range -20 to 19 (lower numbers are a higher priority). Because -1 is a valid return value, the only way to tell if an error occured is to check the value of err.num if the return value is -1. It will be 0 if no error occured (ie. the priority really is -1), and a number greater than 0 if an error occured. When requesting the priority of a process group, the highest priority in the group will be returned.     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>which</b> - Posix.PRIO_PROCESS, Posix.PRIO_PGRP, or Posix.PRIO_USER </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: number <b>who</b> - Process ID, process group ID, or user ID </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The requested priority </td></tr>
+</table></td></tr></table><br>
+<a name="object.getuid.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>getuid</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get the real user id of the running process </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function getuid( ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The real user id     </td></tr>
+</table></td></tr></table><br>
+<a name="object.hardlink.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>hardlink</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Create a hardlink from one location to another </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function hardlink( string oldpath, string newpath ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This is equivelent to the ln command used with just the two arguments     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>oldpath</b> - The current location </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>newpath</b> - The place to create the hardlink </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;'true' on success, 'false' otherwise and err.str will be set with the error </td></tr>
+</table></td></tr></table><br>
+<a name="object.ignoreSignal.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>ignoreSignal</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Causes the specified signal to be ignored </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function ignoreSignal(number sig) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Many signals have a default action which causes the process to exit. This function will cause the specified signal to be ignored instead. It can also be used to unregister a signal handler function.     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>sig</b> - The number of the signal to ignore </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;true on success or false on failure </td></tr>
+</table></td></tr></table><br>
+<a name="object.kill.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>kill</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>sends the specified signal to the specified process(es) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function kill(number pid, number sig) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function sends the specified signal to the specified process ID, or to every process except init if pid is -1, or if pid is less than -1 to every process in the process group -pid (if it exists). The values for sig are available as constants in the Sys class beginning with SIG. Returns false and sets err.str on failure.     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>pid</b> - the ID to send the signal to </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: number <b>sig</b> - the number of the signal to senda </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;true on success or false on failure </td></tr>
+</table></td></tr></table><br>
+<a name="object.lstat.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>lstat</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Gather information about a specified file </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function lstat( string filename ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Almost identical to Posix.stat except for the fact that, if the file being pointed to by filename happens to be a symlink, the information about the symlink will be returned, unlike the file the link points to in the case of Posix.stat().     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>filename</b> - The filename to look at </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Returns a Posix.Stat object on success, null otherwise </td></tr>
+</table></td></tr></table><br>
+<a name="object.mkfifo.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>mkfifo</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>creates a FIFO special file </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function mkfifo(string filename, number mode) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function creates a kind of special file called a FIFO, which is commonly used for inter-process communication. The mode argument is an ordinary octal file permissions map (eg. 0666).     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>filename</b> - The name of the FIFO to create </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: number <b>mode</b> - The file permissions to give the FIFO </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;True on success or false on failure </td></tr>
+</table></td></tr></table><br>
+<a name="object.openprocess.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>openprocess</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Open a process for communication using pipes </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function openprocess( string cmd, string modes ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This allows for one way communication with another process, either the ability to read the process's output, or write to it's input. The modes are either "r" for reading or "w" for writing. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>cmd</b> - The command to execute </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: mstring <b>modes</b> - The modes to use </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A ProcessStream object on success, null otherwise     </td></tr>
+</table></td></tr></table><br>
+<a name="object.registerSigHandler.3">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>registerSigHandler</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>registers the specified function as a signal handler </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function registerSigHandler(number sig, string func, object o) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function registers the specified function as a signal handler. The signal handler must have the prototype function handler(number sig, object o). It will be passed the number of the signal and the object which was specified in the call to registerSighandler(). If the signal already had a handler, it will be replaced by the new one. Returns true on success or false on failure.     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>sign</b> - The signal number to handle </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>func</b> - The name of the handler function </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #3: object <b>o</b> - An object to pass to the handler (may be null) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;true on success or false on failure </td></tr>
+</table></td></tr></table><br>
+<a name="object.resetSigAction.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>resetSigAction</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Resets the specified signal to the default action </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function resetSigAction(number sig) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function resets the action of the specified signal to the OS default (typically it will either be ignored or cause the process to be killed).     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>sig</b> - The number of the signal to reset the action of </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;true on success or false on failure </td></tr>
+</table></td></tr></table><br>
+<a name="object.select.4">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>select</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function select(array read, array write, array except, number timeout) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>The select() function forms the core of many Unix programs. It allows you to monitor many different file and socket descriptors at once and also to wait for accurate periods of time. It takes three arrays of objects as arguments. All of the objects in the arrays must have a getDescriptor() method which returns a file descriptor that can be passed the underlying OS select() call (all the standard classes you might want to use with select() already have that method). The arrays are read, write, and except. They monitor for read availability, write availability, and exceptional events respectively. The fourth argument, timeout, is the number of seconds (may be floating point, eg. 1.5) to wait for one or more of the file descriptors to do become ready before timing out and returning anyway. If timeout is 0, select() will wait forever for activity. If timeout is a negative number, select() will not wait at all (useful for checking if any of the files need servicing without waiting). If select() fails, it returns null. If it succeeds, it returns an instance of the SelectResult class, which contains four variables corresponding to the arguments to select(). The arrays contain lists of the objects which are ready to be read, written to, or had something exceptional happen on them. The timeout variable contains the time remaining until the select() would have timed out (will be 0 if the call did time out).     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: array <b>read</b> - An array of objects to monitor for read availability </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: array <b>write</b> - An array of objects to monitor for write availability </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #3: array <b>except</b> - An array of objects to monitor for exeptional events </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #4: number <b>timeout</b> - The number of seconds before it times out </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;An object of the class SelectResult or null on failure </td></tr>
+</table></td></tr></table><br>
+<a name="object.setgid.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>setgid</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Sets the effective group ID </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function setgid(number gid) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function attempts to set the effective group ID to the specified value. If called by root, it also sets the real and saved IDs, allowing root processes to become an ordinary user in a way that prevents them from returning to the root ID later. Returns false and sets err.str on failure.     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>gid</b> - The ID to set the effective GID to </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;true on success or false on failure </td></tr>
+</table></td></tr></table><br>
+<a name="object.setPriority.3">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>setPriority</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Set the scheduling priority </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function setPriority(number which, number who, number prio) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function attempts to set the scheduler priority of the specified process, process group, or user (set the which argument to Posix.PRIO_PROCESS, Posix.PRIO_PGRP, or Posix.PRIO_USER to choose which one). The who argument can be either the ID of the specified process, process group or user, or it can be 0 which is taken to mean the calling process, the process group of the calling process, or the real user ID of the calling process. The priority is an integer typically in the range -20 to 19, with lower numbers being higher priority. The default priority is 0. Note than only root is allowed to set priorities higher than 0. Returns false and sets err.str on failure.     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>which</b> - Posix.PRIO_PROCESS, Posix.PRIO_PGRP, or Posix.PRIO_USER </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: number <b>who</b> - Process ID, process group ID, or user ID </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #3: number <b>prio</b> - The priority to set </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;True on success or false on failure </td></tr>
+</table></td></tr></table><br>
+<a name="object.setsid.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>setsid</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Creates a new session </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function setsid() </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function attempts to create a new session and a new process group, and makes the caller the leader of the process group. It also detaches the caller from any controlling TTYs. On error, -1 is returned and err.str is set.     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The ID of the new session or -1 on error </td></tr>
+</table></td></tr></table><br>
+<a name="object.setuid.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>setuid</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Sets the effective user ID </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function setuid(number uid) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function attempts to set the effective user ID to the specified value. If called by root, it also sets the real and saved IDs, allowing root processes to become an ordinary user in a way that prevents them from returning to the root ID later. Returns false and sets err.str on failure.     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>uid</b> - The ID to set the effective UID to </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;true on success or false on failure </td></tr>
+</table></td></tr></table><br>
+<a name="object.softlink.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>softlink</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Create a hardlink from one location to another </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function softlink( string oldpath, string newpath ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This is equivalent to the ln command passed with the flag '-s' and used with the two arguments     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>oldpath</b> - The current location </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>newpath</b> - The place to create the softlink </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;'true' on success, 'false' otherwise and err.str will be set with the error </td></tr>
+</table></td></tr></table><br>
+<a name="object.stat.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>stat</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Gather information about a specified file </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function stat( string filename ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>filename</b> - The filename to look at </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Returns a Posix.Stat object on success, null otherwise     </td></tr>
+</table></td></tr></table><br>
+<a name="object.umask.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>umask</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>sets the umask to mask & 0777 </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function umask(number mask) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function sets the umask and returns the old value. The umask value is used when calculating the file permissions which are used when creating a new file.     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>mask</b> - The value to set the umask to </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The previous umask value </td></tr>
+</table></td></tr></table><br>
+<a name="object.userInfo.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>userInfo</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get a Posix.User object with the information about the user </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function userInfo( number uid ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>uid</b> - The user id - can be obtained using Posix.getuid() </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A user object     </td></tr>
+</table></td></tr></table><br>
+<a name="object.utime.3">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>utime</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Sets the access and modification times of the specified file </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function utime(string filename, number atime, number mtime) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function attempts to set the last access time and the last modification time of the specified file. The times are in standard Unix format (ie. the number of seconds since 00:00 on the 1st January 1970). If the atime and mtime parameters are omitted, the access and modification times are set to the current system time.     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>filename</b> - The name of the file to change the times of </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: number <b>atime</b> - The last access time of the file </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #3: number <b>mtime</b> - The last change time of the file </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;True on success and false on failure </td></tr>
+</table></td></tr></table><br>
+<a name="object.waitpid.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>waitpid</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Waits for a child process to terminate </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function waitpid( ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>If you fork child processes, when they exit you must reap them by calling waitpid() or they will stay in the process table in the zombie state. You can call waitpid() with a specific PID and it will wait for that process to terminate, or you can call it with the value 0 and it will wait for any child processes to terminate. If the nohang argument is set to "true", waitpid() will return immediately even if there are no children waiting to be reaped. If an error occurs, -1 is returned.     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>pid</b> - The ID of the process to wait for or 0 to wait for any child process </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: number <b>nohang</b> - Forces waitpid() to return immediately if set to true </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The PID of the process which terminated or 0 if nohang was true and there were no children waiting to be reaped </td></tr>
+</table></td></tr></table><br>
+<h4>Variables</h4>
+<a name="PRIO_PGRP">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>PRIO_PGRP</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get/set the priority of a process group     </td></tr>
+</table></td></tr></table><br>
+<a name="PRIO_PROCESS">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>PRIO_PROCESS</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get/set the priority of a process     </td></tr>
+</table></td></tr></table><br>
+<a name="PRIO_USER">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>PRIO_USER</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get/set the priority of a user     </td></tr>
+</table></td></tr></table><br>
+<a name="RLIM_INFINITY">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>RLIM_INFINITY</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Special resource limit value which means "no limit"      </td></tr>
+</table></td></tr></table><br>
+<a name="RLIMIT_CPU">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>RLIMIT_CPU</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Resource limit on CPU time in seconds     </td></tr>
+</table></td></tr></table><br>
+<a name="RLIMIT_DATA">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>RLIMIT_DATA</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Resource limit on size of data segment     </td></tr>
+</table></td></tr></table><br>
+<a name="RLIMIT_FSIZE">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>RLIMIT_FSIZE</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Resource limit on file size     </td></tr>
+</table></td></tr></table><br>
+<a name="RLIMIT_LOCKS">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>RLIMIT_LOCKS</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Resource limit on number of file locks     </td></tr>
+</table></td></tr></table><br>
+<a name="RLIMIT_MEMLOCK">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>RLIMIT_MEMLOCK</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Resource limit on number of bytes of memory to lock into RAM     </td></tr>
+</table></td></tr></table><br>
+<a name="RLIMIT_NOFILE">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>RLIMIT_NOFILE</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Resource limit on number of open files     </td></tr>
+</table></td></tr></table><br>
+<a name="RLIMIT_NPROC">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>RLIMIT_NPROC</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Resource limit on number of processes current UID can have     </td></tr>
+</table></td></tr></table><br>
+<a name="RLIMIT_RSS">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>RLIMIT_RSS</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Resource limit on maximum RSS size in pages     </td></tr>
+</table></td></tr></table><br>
+<a name="RLIMIT_STACK">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>RLIMIT_STACK</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Resource limit on maximum stack size in bytes     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGABRT">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGABRT</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Abort signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGALRM">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGALRM</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Alarm signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGBUS">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGBUS</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Bus error signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGCHLD">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGCHLD</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Child terminated signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGCONT">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGCONT</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Continue signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGFPE">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGFPE</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Floating Point Exception signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGHUP">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGHUP</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Hang Up signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGILL">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGILL</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Illegal Instruction signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGINT">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGINT</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Interrupt signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGIO">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGIO</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>I/O now possible signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGKILL">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGKILL</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Kill signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGPIPE">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGPIPE</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Broken Pipe signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGPROF">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGPROF</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Profiling timer signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGQUIT">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGQUIT</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Quit signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGSEGV">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGSEGV</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Segmentation Fault signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGSTKFLT">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGSTKFLT</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Stack fault signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGSTOP">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGSTOP</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Stop signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGTERM">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGTERM</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Terminate signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGTRAP">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGTRAP</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Trap signal (used for breakpoints)     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGTSTP">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGTSTP</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Terminal stop signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGTTIN">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGTTIN</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Terminal input without a controlling terminal signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGTTOU">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGTTOU</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Terminal output without a controlling terminal signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGURG">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGURG</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Urgent data on a socket signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGUSR1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGUSR1</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>User defined signal 1     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGUSR2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGUSR2</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>User defined signal 2     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGVTALRM">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGVTALRM</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Virtual alarm clock signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGWINCH">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGWINCH</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Window size change signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGXCPU">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGXCPU</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>CPU time limit exceeded signal     </td></tr>
+</table></td></tr></table><br>
+<a name="SIGXFSZ">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="var.png" style="vertical-align: middle;"> number  <b>SIGXFSZ</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>File size limit exceeded signal     </td></tr>
+</table></td></tr></table><br>
+<font face=arial size=2>Automatically generated at <i>10:10AM, Friday 05 November 2010</i> by <i>feritedoc</i>.</font>
+</body></html>

@@ -1,0 +1,146 @@
+
+BODY {
+ margin: 0px;
+ min-width : 800px ;
+ font-size: 10pt;
+ font-family: Verdana, Geneva, Arial, Helvetica, sans-serif, sans-serif;   
+}
+
+TD.TopRow {
+  background: #005DAC url("image/TopBackground.png");
+  height: 119px;
+  padding: 0px;
+  margin: 0px;
+}
+TR.TopRow {
+  height: 115px;
+  height: 119px;
+  padding: 0px;
+  margin: 0px;
+}
+TD.TopRowLeft { background: url(image/TopLeft.png); background-repeat: no-repeat; background-position: left; }
+TD.TopRowRight { background: url(image/TopRightLogo.png); background-repeat: no-repeat; background-position: right; }
+
+TD.MiddleRow {
+	background: #54AEE1 url("image/MiddleBackground.png");
+	height: 25px;
+	padding: 0px;
+	margin: 0px;
+}
+TR.MiddleRow {
+	height: 25px;
+	padding: 0px;
+	margin: 0px;
+}
+TD.MiddleRowLeft {   
+	horizontal-align: center;
+	text-align: center;
+	background: url(image/MiddleLeft.png); 
+	background-repeat: no-repeat; 
+	background-position: left; 
+	width: 273px;
+	padding-left: 20px;
+}
+
+TD.MainRow {
+	background: white url("image/MainLeft.png");
+	background-repeat: no-repeat;
+}
+
+IMG.noborderimg {
+	border: 0px;
+}
+IMG.borderimg {
+	border: #000 1px solid;
+}
+
+TD.ActiveLeft { height: 21px; width: 6px; background: url(image/Buttons/ActiveLeft.png); background-position: center left; }
+TD.ActiveMiddle {  font-size: 10pt; height: 21px; vertical-align: middle; horizontal-align:center; background: url(image/Buttons/ActiveBackground.png); background-position: center left; color: #042C4A; }
+TD.ActiveRight { height: 21px; width: 6px; background: url(image/Buttons/ActiveRight.png); background-position: center right; }
+
+TD.InactiveLeft { height: 21px; width: 6px; background: url(image/Buttons/InactiveLeft.png); background-position: center left; }
+TD.InactiveMiddle { font-size: 10pt; height: 21px; vertical-align: middle; horizontal-align:center; background: url(image/Buttons/InactiveBackground.png); background-position: center left; color: #042C4A; }
+TD.InactiveRight { height: 21px; width: 6px; background: url(image/Buttons/InactiveRight.png); background-position: center right; }
+
+TD.BlackRow {
+  background: #000;
+  height: 1px;
+}
+TR.BlackRow {
+  height: 1px;
+}
+
+TD.MenuBar {
+	text-align: right;
+	vertical-align: middle;
+	padding-left: 30px;
+}
+TD.MenuTop { 
+	background: url(image/Menu/MenuTop.png); 
+	height: 31px; 
+	width: 118px; 
+}
+TD.MenuBackground { 
+	background: url(image/Menu/MenuBackground.png); 
+	background-repeat: repeat-y; 
+	text-align: left; 
+	padding: 5px; 
+	padding-left: 10px; 
+	width: 118px; 
+}
+TD.MenuBottom { 
+	background: url(image/Menu/MenuBottom.png); 
+	height: 37px; 
+	width: 118px; 
+}
+SPAN.MenuMain { color: #54AEE1; }
+SPAN.MenuOther { color: #003B6E; }
+
+TD.MainCentreColumn {
+	vertical-align: top;
+	text-align: center; 
+	width: 65px;
+}
+TD.MainTopLeft { width: 14px; height: 27px; background: url(image/Main/TopLeft.png); background-position: left; }
+TD.MainTop { height: 20px; background: url(image/Main/Top.png); }
+TD.MainTopRight { width: 14px; height: 27px; background: url(image/Main/TopRight.png); background-position: right; }
+TD.MainLeft { width: 14px; background: url(image/Main/Left.png); background-position: left; }
+TD.MainBackground { background: url(image/Main/Background.png); color: #535353; text-align: left; }
+TD.MainRight { width: 14px; background: url(image/Main/Right.png); background-position: right; }
+TD.MainBottomLeft { width: 14px; height: 24px; background: url(image/Main/BottomLeft.png); background-position: left; }
+TD.MainBottom { height: 24px; background: url(image/Main/Bottom.png); }
+TD.MainBottomRight { width: 14px; height: 24px; background: url(image/Main/BottomRight.png); background-position: right; }
+TD.MainCopyright {
+	font-size: 8pt;
+	text-align: center; 
+	color: #888;
+}
+TD.staticrow {
+    border: 1px solid #000066; 
+    background-color: #EEEEFF; 
+    margin-right: 5px; 
+    margin-left: 5px; 
+    padding: 10px;
+}
+
+PRE.code {
+    border: 1px solid #000066; 
+    background-color: #EEEEFF; 
+    margin-right: 5px; 
+    margin-left: 5px; 
+    padding: 10px;
+}
+BLOCKQUOTE.quote {
+    border-left: 1px solid #006600; 
+    background-color: #CCFFCC; 
+    margin-right: 15px; 
+    margin-left: 15px; 
+    padding: 15px;
+}
+
+A {
+  color: #093182;
+  font-size: 10pt;
+  text-decoration: none;
+  font-weight: bold;
+}

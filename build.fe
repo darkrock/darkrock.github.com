@@ -1,0 +1,54 @@
+uses "embfer";
+uses "array";
+uses "console";
+uses "filesystem";
+
+global {
+	string currentBuffer;
+}
+
+function BufferPrintln( string s ) {
+	currentBuffer += s;
+}
+
+object compiler = new Embfer();
+
+Embfer.registerTagHandler( "include" ) using ( tag, contents ) {
+	return "BufferPrintln(\"" + File.open(String.trim(contents,' ')).toString().escape() + "\");";
+};
+
+Embfer.registerTagHandler( "header-text" ) using ( tag, contents ) {
+	return 
+	"BufferPrintln('<div id=\"sub_header_wrapper\">
+		<div id=\"sub_header\">
+			<h1>${contents.trim(' ')}</h1>
+		</div>
+	</div>');";
+};
+Embfer.registerTagHandler( "header-image" ) using ( tag, contents ) {
+	return 
+	"BufferPrintln('<div id=\"sub_header_wrapper\">
+		<div id=\"sub_header\">
+			<img src=\"${contents.trim(' ')}\" />
+		</div>
+	</div>');";
+};
+
+compiler.setOutputFunction( "BufferPrintln" );
+
+Directory.walk('content') using ( path ) {
+	string top = Directory.name(path - Directory.getCurrent() - "content/");
+	
+	currentBuffer = '';
+	Console.println("Processing $path -> $top${File.name(path)}");
+	File.open(path) using ( file ) {
+		eval( compiler.fromString(file.toString()) );
+	};
+	if( top ) {
+		Directory.build(Directory.getCurrent() + "/" + top);
+	}
+	File.remove(top + File.name(path));
+	File.create(top + File.name(path)) using ( file ) {
+		file.writeln(currentBuffer);
+	};
+};

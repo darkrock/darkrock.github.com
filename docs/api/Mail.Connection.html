@@ -1,0 +1,306 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>class Mail.Connection</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h2>class Connection</h2>
+<p><b>Provided By</b>: <a href="file:/cention/lib/ferite/module-source/cmail.fec">cmail.fec</a></p>
+<p>An instance of this class is required to connect to a mail server	 </p>
+<a name="container_elements">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><b>class contents</b> [<i>NB. Highlighted attributes are static members</i>]</td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=mainrow>Functions</td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#class.base64.1">base64</a><b>(string)</b> - Base64 encode a string </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#class.bit8.1">bit8</a><b>(string)</b> - Using the RFC822 8bit specification, convert a string to be 8bit safe. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.closeMailbox.0">closeMailbox</a><b>()</b> - Close the mailbox if it is open </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.expungeMessages.0">expungeMessages</a><b>()</b> - Expunge all messages flagge as being deleted 		 </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.flagMessageDeleted.1">flagMessageDeleted</a><b>(number)</b> - Flag a message at a given index to be deleted. Use expungeMessages() to actually remove all the messages. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.flagMessageSeen.1">flagMessageSeen</a><b>(number)</b> - Flag a message at a given index as being seen. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.messageAtIndex.1">messageAtIndex</a><b>(number)</b> - Fetch an entire message at a given index. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.messageBeenSeen.1">messageBeenSeen</a><b>(number)</b> - Check to see if a message at a given index has been seen. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.messageCount.0">messageCount</a><b>()</b> - Read the mailbox and return the number of messages within the mail box. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.messageHeaderAtIndex.1">messageHeaderAtIndex</a><b>(number)</b> - Fetch just the message header at a given index. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.openMailbox.5">openMailbox</a><b>(string,string,number,string,string)</b> - Connect and open the default mailbox readed for reading </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.openMailboxURI.2">openMailboxURI</a><b>(string,string)</b> - Connect and open a given mailbox identifier </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.openSpecificMailbox.6">openSpecificMailbox</a><b>(string,string,number,string,string,string)</b> - Connect to a server and open the specifically named mailbox for reading. If you supply the name "INBOX", the mail server will use the default inbox for the user. </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#class.qprint.1">qprint</a><b>(string)</b> - Convert a normal string into a quoted printable string </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.sendMessage.5">sendMessage</a><b>(string,string,string,boolean,object)</b> - With a given Mail.Message object, send the email using the supplied SMTP server paying attention to the authentication details provided </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.sendMessage.2">sendMessage</a><b>(string,object)</b> - With a given Mail.Message object, send the email using the supplied SMTP server </td></tr>
+</table></td></tr></table><br>
+<h4>Functions</h4>
+<a name="class.base64.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=statictitle>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=statictitle>
+	<tr><td class=statictitle><img src="function.png" style="vertical-align: middle;"> static function <b>base64</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Base64 encode a string </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;static native function base64( string str ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>str</b> - The string to base64 encode </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The string in base64 format </td></tr>
+</table></td></tr></table><br>
+<a name="class.bit8.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=statictitle>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=statictitle>
+	<tr><td class=statictitle><img src="function.png" style="vertical-align: middle;"> static function <b>bit8</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Using the RFC822 8bit specification, convert a string to be 8bit safe. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;static native function bit8( string str ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>str</b> - The string to convert </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;8bit safe string </td></tr>
+</table></td></tr></table><br>
+<a name="object.closeMailbox.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>closeMailbox</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Close the mailbox if it is open </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;native function closeMailbox( ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;true if the mail box has been closed, false otherwise		 </td></tr>
+</table></td></tr></table><br>
+<a name="object.expungeMessages.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>expungeMessages</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Expunge all messages flagge as being deleted 		 </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;native function expungeMessages() </td></tr>
+</table></td></tr></table><br>
+<a name="object.flagMessageDeleted.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>flagMessageDeleted</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Flag a message at a given index to be deleted. Use expungeMessages() to actually remove all the messages. </td></tr>
+<tr><td width="100%" valign=middle class=warningrow><img src="warning.png" style="vertical-align: middle;"> Warning!</td></tr>
+<tr><td width="100%" valign=middle class=secondrow>All indicies are not like normal array indicies, the count starts at 1 and ends at .messageCount() </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;native function flagMessageDeleted( number n ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>n</b> - The message index to be flagged		 </td></tr>
+</table></td></tr></table><br>
+<a name="object.flagMessageSeen.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>flagMessageSeen</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Flag a message at a given index as being seen. </td></tr>
+<tr><td width="100%" valign=middle class=warningrow><img src="warning.png" style="vertical-align: middle;"> Warning!</td></tr>
+<tr><td width="100%" valign=middle class=secondrow>All indicies are not like normal array indicies, the count starts at 1 and ends at .messageCount() </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;native function flagMessageSeen( number n ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>n</b> - The message index to be flagged		 </td></tr>
+</table></td></tr></table><br>
+<a name="object.messageAtIndex.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>messageAtIndex</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Fetch an entire message at a given index. </td></tr>
+<tr><td width="100%" valign=middle class=warningrow><img src="warning.png" style="vertical-align: middle;"> Warning!</td></tr>
+<tr><td width="100%" valign=middle class=secondrow>All indicies are not like normal array indicies, the count starts at 1 and ends at .messageCount() </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;native function messageAtIndex( number n ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>n</b> - The index to fetch </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A Mail.Message object on success, null otherwise		 </td></tr>
+</table></td></tr></table><br>
+<a name="object.messageBeenSeen.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>messageBeenSeen</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Check to see if a message at a given index has been seen. </td></tr>
+<tr><td width="100%" valign=middle class=warningrow><img src="warning.png" style="vertical-align: middle;"> Warning!</td></tr>
+<tr><td width="100%" valign=middle class=secondrow>All indicies are not like normal array indicies, the count starts at 1 and ends at .messageCount() </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;native function messageBeenSeen( number n ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>n</b> - The message index to check </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;true if the message has been seen, false otherwise.		 </td></tr>
+</table></td></tr></table><br>
+<a name="object.messageCount.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>messageCount</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Read the mailbox and return the number of messages within the mail box. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;native function messageCount( ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Message count as a number		 </td></tr>
+</table></td></tr></table><br>
+<a name="object.messageHeaderAtIndex.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>messageHeaderAtIndex</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Fetch just the message header at a given index. </td></tr>
+<tr><td width="100%" valign=middle class=warningrow><img src="warning.png" style="vertical-align: middle;"> Warning!</td></tr>
+<tr><td width="100%" valign=middle class=secondrow>All indicies are not like normal array indicies, the count starts at 1 and ends at .messageCount() </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;native function messageHeaderAtIndex( number n ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>n</b> - The index to fetch </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A Mail.Message object on success with the header variable set, null otherwise		 </td></tr>
+</table></td></tr></table><br>
+<a name="object.openMailbox.5">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>openMailbox</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Connect and open the default mailbox readed for reading </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function openMailbox( string proto, string host, number port, string username, string password ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>proto</b> - The protocol (imap or pop3) </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>host</b> - The host to connect to </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #3: number <b>port</b> - The port to use (default pop3: 110, imap: 143 and imaps: 993) </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #4: string <b>username</b> - The username to log in with </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #5: string <b>password</b> - The password to use </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;true if connection successful, false otherwise		 </td></tr>
+</table></td></tr></table><br>
+<a name="object.openMailboxURI.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>openMailboxURI</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Connect and open a given mailbox identifier </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;native function openMailboxURI( string mbox, string passwd ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>The mbox identifier can be made up of the following values:<br />
+ <br />
+ The mbox part, which is enclosed in '{' and '}', consists of the servers name or ip address, an optional port (prefixed by ':'), and an optional protocol specification (prefixed by '/'). All names which start with { are remote names, and are in the form "{" remote_system_name [":" port] [flags] "}" [mailbox_name] where:<br />
+ <br />
+ <emphasis>remote_system_name</emphasis> - Internet domain name or bracketed IP address of server.<br />
+ <emphasis>port</emphasis> - optional TCP port number, default is the default port for that service<br />
+ <emphasis>flags</emphasis> - optional flags, see following details.<br />
+ <emphasis>mailbox_name</emphasis> - remote mailbox name, default is INBOX<br />
+ <br />
+ <strong>/service=service</strong> : mailbox access service, default is "imap"<br />
+ <strong>/user=user</strong> : remote user name for login on the server<br />
+ <strong>/authuser=user</strong> : remote authentication user; if specified this is the user name whose password is used (e.g. administrator)<br />
+ <strong>/anonymous</strong> : remote access as anonymous user<br />
+ <strong>/debug</strong> : record protocol telemetry in application's debug log<br />
+ <strong>/secure</strong> : do not transmit a plaintext password over the network<br />
+ <strong>/imap, /imap2, /imap2bis, /imap4, /imap4rev1</strong> : equivalent to /service=imap<br />
+ <strong>/pop3</strong> : equivalent to /service=pop3<br />
+ <strong>/nntp</strong> :equivalent to /service=nntp<br />
+ <strong>/norsh</strong> : do not use rsh or ssh to establish a preauthenticated IMAP session<br />
+ <strong>/ssl</strong> :use the Secure Socket Layer to encrypt the session<br />
+ <strong>/validate-cert</strong> : validate certificates from TLS/SSL server (this is the default behavior)<br />
+ <strong>/novalidate-cert</strong> : do not validate certificates from TLS/SSL server, needed if server uses self-signed certificates<br />
+ <strong>/tls</strong> : force use of start-TLS to encrypt the session, and reject connection to servers that do not support it<br />
+ <strong>/notls</strong> : do not do start-TLS to encrypt the session, even with servers that support it<br />
+ <strong>/readonly</strong> :request read-only mailbox open (IMAP only; ignored on NNTP, and an error with SMTP and POP3)<br />
+ </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>mbox</b> - A description as above. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>passwd</b> - The password </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;rue if connection successful, false otherwise		 </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Example:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>openMailbox("{host:993/imap/ssl/novalidate-cert/user="username"}INBOX", "password") </td></tr>
+</table></td></tr></table><br>
+<a name="object.openSpecificMailbox.6">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>openSpecificMailbox</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Connect to a server and open the specifically named mailbox for reading. If you supply the name "INBOX", the mail server will use the default inbox for the user. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function openSpecificMailbox( string proto, string host, number port, string username, string password, string mailbox ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>proto</b> - The protocol to use (imap/pop3) </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>host</b> - The host to connec to  </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #3: number <b>port</b> - The port to use (default pop3: 110, imap: 143 and imaps: 993) </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #4: string <b>username</b> - The user to log in with </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #5: string <b>password</b> - The passowrd to use </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #6: string <b>mailbox</b> - The mailbox to connect to </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;true if connection successful, false otherwise		 </td></tr>
+</table></td></tr></table><br>
+<a name="class.qprint.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=statictitle>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=statictitle>
+	<tr><td class=statictitle><img src="function.png" style="vertical-align: middle;"> static function <b>qprint</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Convert a normal string into a quoted printable string </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;static native function qprint( string str ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>str</b> - The string to convert </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A quoted printable version of the string </td></tr>
+</table></td></tr></table><br>
+<a name="object.sendMessage.5">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>sendMessage</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>With a given Mail.Message object, send the email using the supplied SMTP server paying attention to the authentication details provided </td></tr>
+<tr><td width="100%" valign=middle class=warningrow><img src="warning.png" style="vertical-align: middle;"> Warning!</td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function will automatically ISO encode headers, names and the subject of the email if it needs to be done.					The change will not be reflected when the function has returned. This means you need not worry about correct ISO					string escaping for the various parts of the email - just assign strings and away you go. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function sendMessage( string _server, string usernane, string password, boolean ssl, object mail ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>_server</b> - The SMTP host to connect to </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>usernane</b> - The username to use, leave blank if you do not want authentication </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #3: string <b>password</b> - The password to use with the username name, leave blank if you do not want authentication </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #4: boolean <b>ssl</b> - Whether the connection should be done over SSL, false if SSL is not desired </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #5: object <b>mail</b> - The Mail.Message object to send </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;true on success, false otherwise		 </td></tr>
+</table></td></tr></table><br>
+<a name="object.sendMessage.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>sendMessage</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>With a given Mail.Message object, send the email using the supplied SMTP server </td></tr>
+<tr><td width="100%" valign=middle class=warningrow><img src="warning.png" style="vertical-align: middle;"> Warning!</td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function will automatically ISO encode headers, names and the subject of the email if it needs to be done.					The change will not be reflected when the function has returned. This means you need not worry about correct ISO					string escaping for the various parts of the email - just assign strings and away you go. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;native function sendMessage( string server, object mailet ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>server</b> - The server to send the message with </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: object <b>mailet</b> - The Mail.Message object to send </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;true on success, fales otherwise		 </td></tr>
+</table></td></tr></table><br>
+<font face=arial size=2>Automatically generated at <i>10:10AM, Friday 05 November 2010</i> by <i>feritedoc</i>.</font>
+</body></html>

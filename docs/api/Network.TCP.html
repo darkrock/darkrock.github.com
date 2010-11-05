@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>namespace Network.TCP</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h2>namespace TCP</h2>
+<p><b>Provided By</b>: <a href="file:/cention/lib/ferite/module-source/network.fec">network.fec</a></p>
+<p>TCP contains the tcp/ip specific functions and classes.     </p>
+<a name="container_elements">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><b>namespace contents</b></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=mainrow>Classes</td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="class.png" alt="class" style="vertical-align: middle;"> <a href="Network.TCP.Stream.html">Stream</a> - Provides a tcp stream implementation of the standard stream object         </td></tr>
+<tr><td width="100%" valign=middle class=mainrow>Functions</td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.bind.3">bind</a><b>(string,number,number)</b> - Create a socket bound to a TCP port </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.connect.3">connect</a><b>(string,number,number)</b> - Connect to a host on a specified host and port </td></tr>
+</table></td></tr></table><br>
+<h4>Functions</h4>
+<a name="object.bind.3">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>bind</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Create a socket bound to a TCP port </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function bind(string host, number port, number af) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function attempts to create a TCP socket bound to the specified address and port, and if it succeeds, returns a Network.TCPStream object. The address to bind to can be Network.ANY4 to bind to every IPV4 address or Network.ANY6 to bind to every IPV6 address. If the address family is Network.AF_IPV4, bind will look for an IPV4 address with that name and fail if it doesn't find one. If it is Network.AF_IPV6, it will look for an IPV6 address and fail if it doesn't find one. If it is Network.AF_AUTO, it will try to find an IPV6 address, then try to find an IPV4 address, and only fail if it doesn't find either. Note: you can leave off the af parameter if you wish, and it will default to Network.AF_AUTO.         </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>host</b> - The address to bind to </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: number <b>port</b> - The port to listen on, use 0 for any port </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #3: number <b>af</b> - The address family to use </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;An object that can accept connections, or null on error. </td></tr>
+</table></td></tr></table><br>
+<a name="object.connect.3">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>connect</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Connect to a host on a specified host and port </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function connect(string host, number port, number af) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function attempts to create a TCP socket connected  to the specified remote address and port, and if it succeeds, returns a Network.TCP.Stream object. If the address family is Network.AF_IPV4, connect will look for an IPV4 address with that name and fail if it doesn't find one. If it is Network.AF_IPV6, it will look for an IPV6 address and fail if it doesn't find one. If it is Network.AF_AUTO, it will try to find an IPV6 address, then try to find an IPV4 address, and only fail if it doesn't find either. Note: you can leave off the af parameter if you wish, and it will default to Network.AF_AUTO.         </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>host</b> - The host to connect to </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: number <b>port</b> - The port to connect to </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #3: number <b>af</b> - The address family to use </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;An object connected to the host, or null on failure </td></tr>
+</table></td></tr></table><br>
+<font face=arial size=2>Automatically generated at <i>10:10AM, Friday 05 November 2010</i> by <i>feritedoc</i>.</font>
+</body></html>

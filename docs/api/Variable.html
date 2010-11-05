@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>class Variable</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h2>class Variable</h2>
+<p><b>Provided By</b>: <a href="file:/cention/lib/ferite/module-source/reflection.fec">reflection.fec</a></p>
+<p>This class allows you to wrap a variable and access the accessor mechanism provided by ferite. </p>
+<h4>Example</h4>
+<div class="code"> <span class="keyw">uses</span> "console", "reflection";<br />
+ <br />
+ <span class="keyw">class</span> VariableWatcher <span class="keyw">extends</span> Variable {<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">function</span> get() { <br />
+		 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.println( "get called" ); <br />
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">return</span> "har";<br />
+				 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">function</span> set( <span class="type">void</span> value ) { <br />
+		 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.println( "set called: $value" ); <br />
+			 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">function</span> cleanup() { <br />
+		 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">return</span> "cleanup called"; <br />
+			 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
+ }<br />
+ <br />
+ <span class="type">string</span> v = "";<br />
+ <span class="type">object</span> o = <span class="keyw">new</span> VariableWatcher(v);<br />
+ v = "hi";<br />
+ Console.println( v );</div><br />
+ 
+<a name="container_elements">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><b>class contents</b> [<i>NB. Highlighted attributes are static members</i>]</td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=mainrow>Variables</td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="var.png" alt="variable" style="vertical-align: middle;"> <a href="#Reflection">Reflection</a> - Provides a function for runtime inspection of variables </td></tr>
+<tr><td width="100%" valign=middle class=mainrow>Functions</td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.constructor.1">constructor</a><b>(void)</b> - The constructor for a variable class. </td></tr>
+</table></td></tr></table><br>
+<h4>Functions</h4>
+<a name="object.constructor.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>constructor</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>The constructor for a variable class. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function constructor( void var ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: void <b>var</b> - The variable to wrap.	 </td></tr>
+</table></td></tr></table><br>
+<font face=arial size=2>Automatically generated at <i>10:10AM, Friday 05 November 2010</i> by <i>feritedoc</i>.</font>
+</body></html>

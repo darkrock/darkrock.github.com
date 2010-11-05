@@ -1,0 +1,329 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+	<title>The Ferite Programming Language</title>
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<link rel="SHORTCUT ICON" HREF="/favicon.ico">
+</head>
+
+<body>
+<table width="100%" cellpadding=0 cellspacing=0 border=0>
+
+	<!-- Top Row -->
+	<tr class="TopRow">
+		<td class="TopRow"><table width="100%" cellpadding=0 cellspacing=0 border=0>
+			<tr class="TopRow">
+				<td align="left" class="TopRowLeft">&nbsp;</td>
+				<td align="right" class="TopRowRight">&nbsp;</td>
+			</tr>
+		</table> </td>
+	</tr>
+
+	<!-- Black Row -->
+	<tr class="BlackRow"><td class="BlackRow"></td></tr>
+	
+	<!-- Middle Row -->
+	<tr>
+		<td class="MiddleRow"><table width="100%" cellpadding=0 cellspacing=0 border=0>
+			<tr class="MiddleRow">
+				<td class="MiddleRowLeft"> 
+					<table cellpadding=0 cellspacing=0 border=0>
+						<tr>
+							<!-- Inactive -->
+							<td class="InactiveLeft"> </td>
+							<td class="InactiveMiddle">current: 1.1.19</td>
+							<td class="InactiveRight"> </td>
+						</tr>
+					</table>								
+				</td>
+				<td class="MenuBar">
+					<table cellpadding=0 cellspacing=0 border=0>
+						<tr>
+							<!-- Active -->
+							<td class="ActiveLeft"> </td>
+							<td class="ActiveMiddle"><a href="index.html">home</a></td>
+							<td class="ActiveRight"> </td>
+							<!-- Inactive -->
+							<td class="InactiveLeft"> </td>
+							<td class="InactiveMiddle"><a href="download.html">downloads</a></td>
+							<td class="InactiveRight"> </td>
+							<!-- Inactive -->
+							<td class="InactiveLeft"> </td>
+							<td class="InactiveMiddle"><a href="examples.html">examples</a></td>
+							<td class="InactiveRight"> </td>
+							<!-- Inactive -->
+							<td class="InactiveLeft"> </td>
+							<td class="InactiveMiddle"><a href="docs.html">documentation</a></td>
+							<td class="InactiveRight"> </td>
+							<!-- Inactive -->
+							<td class="InactiveLeft"> </td>
+							<td class="InactiveMiddle"><a href="contact.html">contact</a></td>
+							<td class="InactiveRight"> </td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table></td>
+	</tr>
+	
+	<!-- Black Row -->
+	<tr class="BlackRow"><td class="BlackRow"></td></tr>
+
+	<!-- Main Row -->
+	<tr>
+		<td class="MainRow">
+		<table width="100%" cellspacing=5 cellpadding=3>
+			<tr>
+				<td valign=top align="center">
+					<table width="118" cellpadding=0 cellspacing=0 border=0>
+						<tr><td class="MenuTop"></td></tr>
+						<tr>
+							<td class="MenuBackground">
+								<a href="index.html"><span class="MenuMain">home</span></a> <br />
+								<a href="about.html"><span class="MenuOther">about</span></a> <br />
+								<a href="team.html"><span class="MenuOther">the team</span></a> <br />
+							</td>
+						</tr>
+						<tr><td class="MenuBottom"></td></tr>
+					</table>
+					
+					<p>
+						<a href="http://opensource.org"><img class="borderimg" alt="Open Source Approved" src="http://opensource.org/trademarks/osi-certified/web/osi-certified-90x75.png"></a><br>
+				    </p>
+				</td>
+				
+				<td class="MainCentreColumn">
+					<br />
+					<br />
+					<img src="image/ArrowDots.png" alt="Arrow Via Dots From Logo">
+				</td>
+				
+				<td valign="top">
+				
+					<table width="100%" cellpadding=0 cellspacing=0 border=0>
+						<tr>
+							<td class="MainTopLeft"></td>
+							<td class="MainTop"> </td>
+							<td class="MainTopRight"></td>
+						</tr>
+						<tr>
+							<td class="MainLeft"></td>
+							<td class="MainBackground">
+
+
+<h2>Examples</h2>
+
+<p>
+This page provides you with a set of examples that show off the various features of ferite and allow you to get a feel for what the language looks like before you delve into the programming language manual.
+</p>
+
+<p> 
+We start of with simple expressions with variables, functions, objects, classes, closures, and namespaces. Having done a little on structure, we look at various tricks you can exploit in ferite.
+</p>
+
+<p>We hope that you enjoy the ride and end up with a better feel for ferite!</p>
+
+<h2>Hello World</h2>
+
+We start out with the famous <b>Hello World</b> program. The program prints out the words <b>Hello World</b> to standard out (where most text ends up).
+
+<blockquote><pre>uses "console";
+Console.println( "Hello World" );</pre></blockquote>
+
+Output:
+
+<blockquote><pre>Hello World</pre></blockquote>
+
+<h2>Numbers, Strings, Arrays</h2>
+
+The code:
+
+<blockquote><pre>number a;
+string b;
+array c;
+
+a = 2;
+b = "2";
+c = [ a, b ];
+
+Console.println( a );
+Console.println( a + 2 );
+Console.println( a * 4 );
+Console.println( b );
+Console.println( c );</pre></blockquote>
+
+Output:
+
+<blockquote><pre>2
+4
+8
+2
+[ 2, '2' ]</pre></blockquote>
+
+We can even place values in strings:
+
+<blockquote><pre>number x = 10;
+string y = "The value of x=$x";</pre></blockquote>
+
+Taking it a little further, we can even place expressions in there!
+
+<blockquote><pre>number x = 10, y = 20;
+string z = "The value of x plus y = ${x+y}";</pre></blockquote>
+
+<h2>Functions</h2>
+
+The Code:
+
+<blockquote><pre>function f( number x ) {
+    if( x > 1 ) {
+        return f( x - 1 ) * 2;
+    }
+    return 1;
+}
+Console.println( f(10) );</pre></blockquote>
+
+Output:
+
+<blockquote><pre>512</pre></blockquote>
+
+<h2>Namespaces</h2>
+
+What does a namespace look like ?
+
+<blockquote><pre>namespace A {
+    function f() {
+        return "A.f";
+    }
+}
+
+namespace modifies A {
+    function g() {
+        return "A.g";
+    }
+} </pre></blockquote>
+
+<h2>Classes</h2>
+
+What does a class look like ?
+
+<blockquote><pre>class A {
+    string value;
+    
+    constructor {
+        .value = "Class.A";
+    }
+    
+    function f {
+        return .value;
+    }
+} </pre></blockquote>
+
+<h2>Protocols</h2>
+
+A protocol is a contract, a bit of code that forces parts of a class to take on a certain structure.
+
+<blockquote><pre>protocol C {
+    function getX();
+    function getY();
+}
+
+class A implementes C {
+    function getX() { return "X"; }
+    function getY() { return "Y"; }
+}</pre></blockquote>
+
+<h2>Objects</h2>
+
+Object are just instances of a class. They look like this:
+
+<blockquote><pre>object o = new A();</pre></blockquote>
+
+<h2>Closures</h2>
+
+Can you do the lambda ? ferites closures are the same as lambda terms, they do capturing! 
+
+<blockquote><pre>number x = 10, y = 15, z = 30;
+object o = closure {
+    return x + y + z;
+};</pre></blockquote>
+
+Or they can do iteration!
+
+<blockquote><pre>Array.each( [ 1, 2, 3 ] ) using ( value ) {
+    Console.println( value );
+};</pre></blockquote>
+
+<h2>Variable Argument Lists</h2>
+
+Variable argument lists ? Easy!
+
+<blockquote><pre>function test( string fmt, ... ) {
+    array args = arguments();
+    number i = 0;
+
+    Console.println( "test() called with ${Array.size(fncArgs)} args" );
+    Console.println( "format: $fmt" );
+
+    for( i = 0; i &lt; Array.size(fncArgs); i++ )
+    {
+        Console.println( "Arg[$i]: ${fncArgs[i]}" );
+    }
+}
+</pre></blockquote>
+
+<h2>Exception Handling</h2>
+
+Sometimes problems can occur, and sometimes you want to catch the issues!
+
+<blockquote><pre>iferr {
+    /* some code that might go wronf */
+} fix {
+    /* Tidy up! */
+} else {
+    /* If we have no error, lets do some different cleaning up */
+}</pre></blockquote>
+
+<h2>Loops</h2>
+
+And to finish this whistle-stop tour of ferite, here are the standard issue loops:
+
+<blockquote><pre>for( number i = 0; i < 10; i++ ) {
+    Console.println( "Hi for the $i" );
+}
+
+i = 0;
+while( i < 10 ) {
+    Console.println(i);
+    i++;
+}
+
+i = 0;
+do {
+    Console.println(i);
+} while( i++ < 10 );</pre></blockquote>
+
+							</td>
+							<td class="MainRight"></td>
+						</tr>
+						<tr>
+							<td class="MainBottomLeft"></td>
+							<td class="MainBottom"></td>
+							<td class="MainBottomRight"></td>
+						</tr>					
+						<tr><td colspan=3 class=MainCopyright align=center>ferite and related projects &copy; 2000-2010, Chris Ross </td></tr>
+					</table>
+				<td>
+			</tr>
+		   </table>
+		</td>
+	</tr>
+</table>
+
+</body>
+</html>
+
+
+
+
+

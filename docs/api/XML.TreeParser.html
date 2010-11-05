@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>class XML.TreeParser</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h2>class TreeParser</h2>
+<p><b>Provided By</b>: <a href="file:/cention/lib/ferite/module-source/xml.fec">xml.fec</a></p>
+<p>Implements a TreeParser. </p>
+<h4 class=warningtitle><img src="warning.png" style="vertical-align: middle;"> Warning!</h4>
+<p>Due to the nature of libxml2, xml parsing, unlike ferite, is not currently completely thread safe.				This is exhibited within the error reporting of the parsers and is currently unavoidable.	 </p>
+<h4>Description</h4>
+<p>Parse XML into a tree. </p>
+<h4>Example</h4>
+<div class="code">	 <span class="keyw">uses</span> "xml";<br />
+	 <span class="keyw">uses</span> "console";<br />
+	 <span class="keyw">uses</span> "<span class="type">array</span>";<br />
+	 <span class="keyw">uses</span> "<span class="type">string</span>";<br />
+	 <br />
+	 <span class="keyw">global</span> {<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">number</span> dumpElements = 1;<br />
+	 }<br />
+	 <br />
+	 <span class="keyw">function</span> whitespace( <span class="type">number</span> count ) {<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">string</span> s = "";<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">while</span>( count &gt; 0 )<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s += "&nbsp;&nbsp;&nbsp;&nbsp;";<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count--;<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">return</span> s;<br />
+	 }<br />
+	 <br />
+	 <br />
+	 <span class="keyw">function</span> processElement( <span class="type">object</span> element, <span class="type">number</span> depth ) {<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">string</span> ed = String.trim( element.getElementData(), " \t\n\r" );<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">if</span>( dumpElements )<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.println( whitespace(depth) + "&gt;&gt;&gt;&gt;&lt; Element: " + <br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;element.getElementName() + " Ns:" + element.getNamespace() + <br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" Attr:" + element.getAttributes() );<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">if</span>( ed != "" &amp;&amp; dumpElements )<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.println( whitespace(depth + 1) + "---- '$ed'" );<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">if</span>( element.hasChildren() )<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;{<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="type">array</span> children = element.getChildren();<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Array.each( children ) <span class="keyw">using</span> ( child ) {<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;processElement( child, depth + 1 );<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">if</span>( dumpElements )<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.println( whitespace(depth) + "&lt;&lt;&lt;&lt; Element: " + <br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;element.getElementName() );<br />
+	 }<br />
+	 <br />
+	 <span class="type">object</span> o = <span class="keyw">new</span> XML.TreeParser();<br />
+	 o.parseFile( <span class="keyw">argv</span>[0] );<br />
+	 <br />
+	 processElement( o.getDocumentElement(), 0 );<br />
+	 <br />
+	 <span class="keyw">if</span>( !dumpElements )<br />
+	 &nbsp;&nbsp;&nbsp;&nbsp;Console.println( o.toString() );<br />
+	 </div><br />
+ 
+<a name="container_elements">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><b>class contents</b> [<i>NB. Highlighted attributes are static members</i>]</td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=mainrow>Functions</td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.getDocumentElement.0">getDocumentElement</a><b>()</b> - Retrieve the document element from a parsed xml entity. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.keepBlanks.1">keepBlanks</a><b>(boolean)</b> - Make the parser keep all whitespace. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.parseChunk.1">parseChunk</a><b>(string)</b> - Parse an xml chunk into a tree. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.parseFile.1">parseFile</a><b>(string)</b> - Parse an xmlfile into a tree. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.saveToFile.1">saveToFile</a><b>(string)</b> - Save the parser tree to a file. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.toString.0">toString</a><b>()</b> - Return the XML tree as a string. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.validation.1">validation</a><b>(boolean)</b> - Should we validate the XML agains the DTD in the DOCTYPE element? </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.xpathArray.1">xpathArray</a><b>(string)</b> - Retrive an array of values from the tree using XPath. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.xpathNode.1">xpathNode</a><b>(string)</b> - Retrive a string from the tree using XPath. </td></tr>
+</table></td></tr></table><br>
+<h4>Functions</h4>
+<a name="object.getDocumentElement.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>getDocumentElement</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Retrieve the document element from a parsed xml entity. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function getDocumentElement( )  </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The document element as an XML Element object or a null object on failure.		 </td></tr>
+</table></td></tr></table><br>
+<a name="object.keepBlanks.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>keepBlanks</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Make the parser keep all whitespace. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function keepBlanks( boolean bool )		 </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: boolean <b>bool</b> - true (default) for yes  and false for no. </td></tr>
+</table></td></tr></table><br>
+<a name="object.parseChunk.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>parseChunk</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Parse an xml chunk into a tree. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function parseChunk( string chunk )		 </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>chunk</b> - The XML string to parse. </td></tr>
+</table></td></tr></table><br>
+<a name="object.parseFile.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>parseFile</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Parse an xmlfile into a tree. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function parseFile( string filename )		 </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>filename</b> - The XML to parse. </td></tr>
+</table></td></tr></table><br>
+<a name="object.saveToFile.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>saveToFile</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Save the parser tree to a file. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function saveToFile( string filename ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>filename</b> - The name of the file to save to. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;true on success false on failure.		 </td></tr>
+</table></td></tr></table><br>
+<a name="object.toString.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>toString</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Return the XML tree as a string. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function toString( ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;a string containing the XML data.</td></tr>
+</table></td></tr></table><br>
+<a name="object.validation.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>validation</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Should we validate the XML agains the DTD in the DOCTYPE element? </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function validation( boolean bool )		 </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: boolean <b>bool</b> - true for validate and false for no validation (default). </td></tr>
+</table></td></tr></table><br>
+<a name="object.xpathArray.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>xpathArray</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Retrive an array of values from the tree using XPath. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function xpathArray( string expr ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>axpr</b> - The XPath expression. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;An array containing the result of the xpath expression.		 </td></tr>
+</table></td></tr></table><br>
+<a name="object.xpathNode.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>xpathNode</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Retrive a string from the tree using XPath. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function xpathNode( string expr ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>txpath</b> - The XPath expression. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A XML.Element node, or null		 </td></tr>
+</table></td></tr></table><br>
+<font face=arial size=2>Automatically generated at <i>10:10AM, Friday 05 November 2010</i> by <i>feritedoc</i>.</font>
+</body></html>

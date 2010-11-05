@@ -1,0 +1,706 @@
+<?include templates/header.html ?>
+
+<h3>old news</h3>
+
+<b>23rd January 2007</b> optimisation
+<blockquote>
+	Development moves forward with ferite to improve speed within the engine. Work has been done
+	to improve function calling, array access and reduce the internal structures to be much tighter
+	and closer knit.
+</blockquote>
+
+<b>1st January 2007</b> happy new year!
+<blockquote>
+	Happy New Year!
+</blockquote>
+
+<b>17th December 2006</b> all quiet on the website front
+<blockquote>
+	The website has been quiet due to work being done on ferite and webframework.
+	<p />
+	webframework is ferite's answer to web application development and you can view
+	the documentation at <a href="http://webframework.ferite.org">webframework.ferite.org</a>.
+	Its development has been moving along at a good place and with its use within a
+	few commercial applications enforcing its maturity.
+	<p />
+	ferite is moving along at a bug fixing rate with various changes under the hood
+	making it a much better engine. There are plans to make a few more internal changes
+	before 1.1.0 is released.
+	<p />
+</blockquote>
+
+<b>7th January 2006</b> happy new year; pre-release 1.1.0
+<blockquote>
+Happy New Year! If you fancy having a play with 1.1.0 and don't want to get your
+hands dirty with CVS, you can check out some distribution packages 
+<a href="http://www.ferite.org/files/pre-release/index.fe">here</a>.
+</blockquote>
+
+<b>6th December 2005</b> 1.0.2; development work
+<blockquote>
+Ferite 1.0.2 has now <a href="download.html">been released</a>. This is a recommended
+update for ferite due to a number of significant memory issues having been fixed.<br />
+<br /><br />
+<TABLE cellpadding=2 cellspacing=0 WIDTH="90%" align=center><TR><TD class=staticrow>  
+- Fix for a threading issue that caused the engine to crash with a memory issue.<br />
+- Fix for rmi and a lack of parsing of arguments within function calls.<br />
+- Fix for rmi that caused the starvation of network sockets within the server
+  environment. The new fix forces the GC to be run when in blocking listen mode
+  and also forces the shutdown of network sockets.<br />
+- Fix for array code that would cause objects to have an inflated refcount and 
+  cause scripts to not deleted objects within the GC<br />
+- Fix for refcounting issues within the assignment of objects<br />
+- Fix for building on CYGWIN: required -no-undefined on the libraries and a
+  missing header in aphex_thread.c<br />
+- Fix for class/namespace modifies on a class/namesapce that already exists
+</TD></TR></TABLE><br /><br />
+Development work still continues with the unstable branch of ferite. It has the addition
+of directives in a nice and extensible manner, various language clean ups and fixes. This
+is likely to be released soon. There is significant work on the next generation compiler
+allowing for compile caching, multiple threaded building in parallel, code optimisation 
+and validation, and all in about the same sort of time as the current compiler. There has
+also been significant work made on the webframework system - ferite's answer to the various
+web application platforms about. We are certain you will enjoy it. Look forward to a release
+and some tutorials by the end of the year!<br />
+<br />
+There is a <a href="http://www.pixelcarnage.com/development/love_after_php">good article</a> 
+here about ferite - go check it out!
+</blockquote>
+
+<b>15th June 2005</b> ferite development future
+<blockquote>
+The initial version of the developer section of this site is alive. You can read it
+<a href="developer.html">here</a>. It covers the future both the language, the underlying
+technology and the marketting that needs to be done.
+</blockquote>
+
+<b>12th June 2005</b> ferite 1.0.x, ferite 1.1.x and cvs
+<blockquote>
+There is a new branch in town: <tt>FERITE_1_0_BRANCH</tt>. 
+<p>
+With work starting on the 1.1.x series of ferite, it has been necessary to setup a cvs branch 
+to cover bug fixing with ferite 1.0.x. The first release of ferite 1.0.1 will include a fix for 
+<tt>miniferite.c</tt>, and a major fix to allow the compliation of ferite on 
+<a href="http://www.microsoft.com">Windows</a> using <a href="http://www.cygwin.com">CYGWIN</a>.
+To track the bug fix branch you need to use:<br>
+<br>
+<TABLE cellpadding=2 cellspacing=0 WIDTH="90%" align=center><TR><TD class=staticrow>
+<pre>cvs -z3 checkout -r FERITE_1_0_BRANCH ferite</pre>
+</TD></TR></TABLE><Br>
+<br>
+To track the development branch of ferite you just need to checkout/update cvs as normal.
+</blockquote>
+
+<b>10th June 2005 v2</b> ferite 1.0: the splendid release
+<blockquote>
+We are please to annouce the final release of ferite 1.0 and the start of work on
+ferite 1.1. Please make your way over to the <a href="download.html">downloads page</a>
+to grab the new version.<br />
+<br />
+1.1 will be bringing with it a number of nice changes to ferite. The one that is 
+currently getting people excited is class directives. The directives allow you to define static
+functions to be called when building a class to provide a much more flexible 
+guidlines to ferite. Combined with <tt>eval</tt> and you can have all sorts of fun. 
+For example:<br /><br />
+<TABLE cellpadding=2 cellspacing=0 WIDTH="90%" align=center><TR><TD class=staticrow>
+<pre>class modifies Obj {
+	
+   static function reader( string name ) {
+      eval( "
+         class modifies ${Class.name(self)} {
+            function get$name() {
+               return .$name;
+            }
+         }" );		
+   }
+}
+
+class Example {
+	
+   private number X = 10;
+   private string foo = "hi";
+
+   reader X;
+   reader foo;	
+}
+</pre>
+</TD></TR></TABLE><br /><br />
+This code causes a reader function to be created for the variables <tt>X</tt> and <tt>foo</tt>.
+</blockquote>
+
+<b>10th June 2005</b> the future and trendy gear
+<blockquote>
+<b>ctr</b>:  I am current sat in Sweden having had a long meeting yesterday chatting about the future
+of ferite. The result ? There is now a clear plan on how to introduce international character 
+sets to ferites core. The main improvements of the planned compiler and virtual machine that
+will provide the basis for ferite 1.5 and ferite 2.0. A clear plan on how to get the documentation
+for ferite even futher along the road than it currently is, and a set of killer applications
+and services that will be developed in ferite, using webframework, to pull people towards 
+ferite and its use. The finer details are currently sat on a pad of paper but I shall type
+up the notes and provide them to you very soon.<br />
+<br />
+I forgot to promote the ferite shop before, but you can buy <a href="http://cafepress.com/ferite">trendy 
+clothing and mechandise</a> that sports the cool ferite logo. There is no profit made by 
+the team at ferite, it is just there to look cool and promote everything ferite.
+</blockquote>
+
+<b>30th May 2005</b> modules galore!
+<blockquote>
+Today marks the release of 12 modules for ferite. They cover various programming tasks and wrap well established libraries to increase the reach of ferite. They are:
+<ul>
+<li> aspell interface to allow spell checking from scripts.
+<li> crypt module that wraps libmcrypt to provide encryption and decryption of strings.
+<li> curl wrapper to provide web protocol access.
+<li> A curses interface.
+<li> A database module to provide a database independant mechanism for database access.
+<li> embfer module that allows you to embed ferite within tags and have it converted into text.
+<li> gettext module to allow for translatable programs.
+<li> A wrapper around imlib2 allowing the generation of images within ferite scrips.
+<li> A serial module to interact with serial ports and devices on them.
+<li> A fast templating module.
+<li> An xslt module that allows you to apply xsl transforms to the trees created by the XML.TreeParser supplied with ferite.
+<li> A zip module allowing the inspection of zip files.
+</ul>
+To grab these modules please check the <a href="download.html">downloads</a> page.
+<p>
+Coming soon! apache module, opengl module, email (imap) module!
+</blockquote>
+
+<b>26th May 2005</b> 1.0 release candidate 2
+<blockquote>
+Various people have highlighted the compile issues under gcc 4.0, specifically with the <tt>thread</tt> and <tt>xml</tt> modules. You can find the latest release on the <a href="download.html">downloads</a> page.
+</blockquote>
+
+<b>25th May 2005</b> 1.0 release candidate 1
+<blockquote>
+Today marks the turn of a new era. ferite has reached the grand number of 1.0. There are numerous updates and fixes:
+<ul>
+<li> Many bug fixes and performance enchancements.
+<li> Rewritten manual, embedding guide, API and C API.
+<li> Added feritedoc manual to aid its use.
+<li> Creation of a 'date' module that contains time specific classes and functions.
+<li> <tt>"" + void</tt> evaluates to <tt>""</tt> rather than <tt>"(void)"</tt>
+<li> Major structural changes to make method calls from native code easier.
+<li> Static constructors and destructors on classes
+<li> Constructors are now called 'constructor' not the name of the class
+<li> Ability to specify a hash key for an object by overriding the hash() function
+<li> Implementation of closures within ferite:
+    <pre>
+    number z = 10;
+    object o = closure( x, y ) {
+        Console.println( x );
+        Console.println( y );
+        Console.println( z );
+    };
+    o.invoke( 8, 9 );
+    </pre>
+The above code captures the 'z' variable, and uses the passed in variables. Please see the manual.
+
+<li> Implemented passed in blocks to functions allowing for a new dynamic method of programming. For example iterators, the array module now provides an each() method that can be used like so:
+    <pre>
+    Array.each( [ 1, 2, 3 ] ) using ( value ) {
+        Console.println( value );
+    };
+    </pre>
+A block passed in using the 'using' keyword is a closure.
+
+<li> Renamed getArgs() to arguments()
+<li> Removed regular expressions from the language and moved them into a more ferite esque module called "regexp"
+<li> Added ability to execute a function on an expression: (new A()).someFunction(), it is just necessary to bracket the expression.
+<li> Added the ability to do call by reference on variables:
+    <pre>
+    function f( number &b, number a ) {
+        b = 10;
+        a = 10;
+    }
+    
+    number b = 1, a = 1;
+    f( b, a );
+    </pre>
+    b is now 10 because the variable reference was passed into f
+
+<li> Added protocols to ferite allowing classes to conform to a given protocol e.g.
+    <pre>
+    protocol X {
+        function getX();
+        function setX( string v );
+    }
+    
+    class A implements X {
+        function getX(){ return ""; }
+        function setX( string v ) { }
+    }
+    </pre>
+The compiler will ensure that the class does conform or wont complete compliation. It is also possible to use, on any object, the function 'conformsToProtocol' to check if the object is valid for ones purpose.
+ 
+<li> Sliced arrays now work correctly (there was a foolish bug before)
+<li> Added private, protected and public to the ferite compiler and engine. You can now have access control on your functions.
+<li> Implemented abstract classes and final classes to contol who can inherit from your creations.
+<li> Added the ability to define keys within an associated in-line script:
+
+    <pre>array a = [ 'Key1' => value, 'Key2' => 'value2' ];</pre>
+    
+<li> Fixed the locating of overloaded methods when they have different parameters types. (ferite woulnd't be able to find various methods)
+<li> Major work on the XML module to provide TreeParser and XML.Element to allow the inspection and rebuilding of the xml trees.
+<li> Various new array and string routines
+<li> The compiler allows you to embed block comments within each other, /* /* */ */ making the comment system more sane.
+<li> Variable declared within a for loop (especially void variables) will be dealt with correctly (reset and not crash)
+<li> You no longer can assign to null and nowt
+<li> New feritedoc which is now usable and very fast, which provides much nicer  documentation including an offline search mechanism. It also provides a central mechanism for updating documentation to the system documentation. (feritedoc --regenerate)
+<li> ".feh" is now a valid script extension
+<li> Made libxml2 a requirement for ferite.
+<li> Builder now provides (for feritedoc) a modulename.xml that details all of the files that it used to create the native code for a module; thus making it easy for feritedoc to find what files it has to scan to get the documentation correct.
+<li> Reworked the install paths to be more sane
+<li> Split the originally huge sys module into several smaller ones: date, network, posix, unix, sys, filesystem, stream. This makes the module system much cleaner and also  provides the stream module to make extending stream objects easier.
+<li> A test-suite to provide unit based testing, and a set of tests.
+<li> A fix for iferr blocks that don't have a else block
+<li> The module subsystem can now cope with relative paths.
+<li> The rmi (Remote Method Invocation) module now works (it showed some critical bugs with threading and the garbage collector). The internal threading system along with the thread module are much better behaved. It also reuses existing connections and doesnt eat resources.
+ 
+<li> The addition of farm to the distribution. farm is a build system written in ferite aimed to make building code easier on one's sanity. farm takes a description constructed in XML and will build libraries, binaries and modules quicker and with less pain that autotools.
+
+<li> The addition of manual-builder to the distribution. This takes the pain away from using docbook and provides a nice sane way of generating html and pdf documentation from the same source. ferite uses manual builder for the pdfs and html documentation it  is provided with.
+ 
+<li> API, C API documentation is generated on install, ferite is shipped with numerous examples, pdf and html manuals all installed locally to allow non-networked  machines access to the documentation.
+ 
+<li> Brand new logo :)
+</ul>
+The site has been updated, the documentation has been re-written to be much more user friendly. Please take a look at the <a href="download.html">downloads</a> page for more information on obtaining ferite and the various 3rd party modules (including modules for database, image, mail, xslt, and various other exciting modules).
+<p>
+So what does the future hold ? 
+<ul>
+<li>There is already work on the next version of the ferite compiler which will bring forward static type checking, warnings for various parts of programs that could be considered not thread safe, programmable class modifiers, and various other goodies to make development more fun. This will be merged with the current ferite runtime to provide a much nicer experience. 
+<li>There are also some experiments being conducted in to next generation VMs for ferite. There is currently much smaller type usage, increased speed and better garbage collection. Once the vm architecture has been finalised the new compiler will be merged to it. This will all be done incrementally.
+<li><tt>webframework</tt> is an advanced web framework that provides a state driven programming experience similar to the model-view-controller methods used with GUI programming.
+<li>There are various modules almost here to deal with OpenGL, SOAP and various other exciting technologies.
+</ul>
+We hope you enjoy this release of ferite, we are all very proud of it.
+</blockquote>
+
+<b>14th June 2004</b> roadmap to 1.0
+<ul>
+Within the next week or so 1.0rc1 will be released. This will initially be the code basewith the documentation following closely behind. We are aiming to get 1.0final out by the middle of July. This will include ferite with its core set of module, as well as, a whole fist of modules for doing all sorts of application development (imaging, email, templates, database access, xml and much more).<br>
+<br>
+Once 1.0 has been released, work will begin on 1.1 which will push forward in terms of house keeping in: the exception system, threading, method declaration and handling, general speed improvements. We aim to have 1.1 released at the end of September 2004.<br>
+<br>
+We are also investigating GUI bindings to provide developers an easy mechanism for rapidly building, prototyping and depolying interfaces that will function correctly on multiple platforms.
+</ul>
+
+<b>March 23rd 2004</b> nameservers changed and updated
+<ul>
+Having setup the mirrors, ferite.org has been renewed and transfered to a
+more reliable set of nameservers. The mirrors are now known as uk. se. and us.ferite.org. They are the same machines as before but have a more obvious name.
+</ul
+
+<b>March 17th 2004</b> happy new year
+<ul>
+Better late than never. ferite.org has had a rocky few months due to the hosting
+being a bit shaky. To stop the lack of information in the future we are implementing
+a couple of mirrors. The first to become live is <a href="http://ferite.sourceforge.net">ferite.sourceforge.net</a>.
+The second is the European Mirror from cention. It is <a href="http://ferite.centiongroup.com">ferite.centiongroup.com</a>.
+</ul>
+
+
+<b>December 14th 2003</b> activity at last, lambda, basics as objects
+<ul>
+The silence is broken and code has been written. Having played with lambda
+calculus for so long through my PhD, I have decided to bite the bullet and
+add statically bound lambda constructs to ferite. The work is currently in
+cvs. Please see <tt>scripts/test/closure.fe</tt>.<br>
+<br>
+It works nicely. I am also in the process of fixing the regular expression
+code that was broken when block scoped variables are in. Once these fixes
+are in I will do some testing and release 0.99.7.<br>
+</ul>
+
+<b>August 12th 2003</b> been away
+<ul>
+Unfortunately, due to some technical dificulties, the site has been away. But
+now it is back. Most of the development on ferite has halted whilst we
+have a break over the summer and collect our ideas. We are not dead - just
+revitalising ourselves.<br>
+<br>
+Work in progress has been the <b>Ferite.framework</b> which is a ObjectiveC
+framework for quickly deploying ferite into Cocoa based Mac OS X projects.<br>
+<br>
+There has also been work on making all type objects which will no doubt feature
+in the CVS repository once it has become slightly less unstable.
+</ul>
+
+<b>February 16th 2003</b> quick cvs update: private, protected and public
+<ul>
+The recent CVS changes have made it possible to make class items private,
+protected or public. This make larger projects and library access control
+more flexible. By default variables are private and methods are public. <br>
+<br>
+It is also now possible to make classes abstract or final. And when an error
+is thrown and not caught a backtrace is given out making finding the errors
+easier.
+</ul>
+
+<b>January 16th 2003</b> anonymous cvs issues
+<ul>
+Due to technical issues at SourceForge, anonymous CVS access is currently 
+unavailable. The cvs browser and examples page will be down for the duration. 
+More info can be found on the SourceForge.net <a href="http://sourceforge.net/docman/display_doc.php?docid=2352&group_id=1#cvs">site status page</a>.
+</ul>
+
+<b>January 8th 2003</b> happy new year
+<ul>
+Happy New Year! What with Christmas having passed aswell as the New Year,
+we have a present for you. It's a new stable version of ferite. This feature
+is as big as before and provides even more goodies for people to play with.
+Go and play! The release notes are below:
+<br>
+<br>
+<ul>
+ <li>Many bug fixes and performance enhancements including speedups between 3-12 times
+    and a couple of critical compiler fixes.
+ <li>Much more documentation, including API, C API and a developers guide
+ <li>Object methods can call the constructor of their parent class with super().
+ <li>Single line functions don't need braces around the function body, eg.
+    <ul><pre>	            
+      function foo( number bar )
+        return bar + 42;
+    </pre></ul>	
+ <li>Added the foreach() operator.
+ <li>Added ( foo ? bar1 : bar0 ) conditionals.
+ <li>Added parameter overloading- you can now do things like:
+    <ul><pre>	        
+      function foo( number bar )
+	Console.println("foo: got number " + bar);
+	
+      function foo( string bar )
+	Console.println("foo: got string " + bar);
+    </pre></ul>
+ <li>Changed the way variable argument lists are accessed via script code
+ <li>Added many new functions, classes, and constants to the Sys module. In particular:
+      <ul>
+     <li>Syslog
+     <li>select()
+     <li>printf()
+     <li>UDP sockets
+     <li>Signal handlers
+     <li>Full IPV6 support
+     <li>Unix domain sockets
+     <li>A pipe stream class
+     <li>A string stream class
+     <li>A host class for DNS lookups
+     <li>Many system constants (eg. the errno and signal values), the values
+        of which are determined at compile time
+      </ul>							 
+  <li>Rewrote several String functions and added many new ones
+  <li>Added several new Array functions, including a generic array sorting routine
+  <li>Added several new Reflection functions, including better object and function
+     runtime inspection, and the ability to trace a variable's modification.
+  <li>Feritedoc is now much faster
+  <li>Basic Remote Method Invocation framework in pure ferite
+  <li>The ability to duplicate a scripts in C code
+  <li>The XML module has been re-written in places to be more flexible
+  <li>Saner Error handling regarding multiple threads within a script
+</ul>
+<br>
+Ferite works on Linux, Solaris, Mac OS X, Cygwin and FreeBSD.
+Please see the download page for details on obtaining ferite.
+I have also modified the site menu to make navigation less complicated
+and confusing.
+</ul>
+
+<b>December 2nd 2002</b> developers guide
+<ul>
+Well, as promised there is a developers guide availiable. It is currently
+in a state of flux and any significant updates will be mentioned here. You
+can access it the same formats as the normal manual by clicking on the menu
+items on the left. Enjoy.
+</ul>
+
+<b>November 29th 2002</b> documentation
+<ul>
+The documentation had been updated on this site to include the latest cvs 
+documentation for the manual, the module api and the C api for developers.
+This should make developing ferite easier. Aswell as online versions there
+are tarballs that can be downloaded. The next piece of documentation on its
+way is the guide for developers wishing to do clever things with ferite.
+Enjoy.
+</ul>
+
+<b>November 26th 2002</b> back
+<ul>
+After some down time and various people having breaks from coding, development 
+has started again, the website is back and things are starting to gain more
+momentum. Recently there has been a huge commit by Alex Holden on the Sys
+module providing some posix'y good ness, and work on better variable handling 
+in the engine with a view of implementing block-nested-variables at somepoint
+soon. Be patient as <b>0.99.6</b> will be here at somepoint soon.
+</ul>
+
+<b>October 9th 2002</b> ferite 0.99.6 is almost here
+<ul>
+ferite is still alive. This seems like deja-vu. There hasn't been that many
+news items of worthy note recently. The main changes between 0.99.5 and the
+current source tree is numerous bug fixes and clean ups aswell as vast speed
+improvements. The ackermann benchmarks now run three times faster than before.
+There are also some syntax cleanups, additions aswell as some documentation
+for developers.
+</ul>
+
+<b>July 11th 2002</b> ferite 0.99.5 released
+<ul>
+ferite 0.99.5 has now been released. It's hot, its great, go download and
+play with it now. You should be impressed. We are, it's definatly been work
+the last 6 months hard work. Here are the release notes:
+<br>
+<ul>
+  <li> FreeBSD, Darwin, OpenBSD and Solaris fixes
+  <li> Support for Cygwin
+  <li> ferite.m4 for easy ferite install checking
+  <li> Cross platform library for system interaction [aphex], Provides consistant file, directory and threading interface
+  <li> man pages for both ferite and builder
+ <li> Full api documentation
+ <li> function renaming and deletion in classes
+ <li> Complete re-write of the array subsystem
+ <li> Large amounts of module work
+ <ul>
+   <li> Complete re-write of the module system
+   <li> Re-write of builder to reflect changes
+   <li> Much more flexible load unload system
+ </ul>
+ <li> Syntax clean ups
+ <ul>
+   <li> Slice operator - allows the selection of ranges out of an array or string
+   <li> Removed '->'
+   <li> uses now only accepts a quoted string. Including a new contruct c///,
+        this allows for capture strings to be placed in the variables mentioned in
+        the comma separated list on the right hand side.
+   <li> Better regular expression detection and processing
+   <li> New 'atomic' keyword for threadin - provides locking for functions and
+        variables at script level.
+   <li> Code at the end of a module is now executed when loaded in
+   <li> eval() modifies the script it runs in
+   <li> include() can be used to load up another script at run time
+   <li> Arrays can be created in scripts using [ value, ... ] syntax
+   <li> isa operator to check a variables type
+   <li> instanceof operator to see if a variable is an instance of a class or
+		         parent class.
+   <li> Ability to embed expressions in a string using "${expr}" syntax.
+ </ul>
+ <li> More functionality added to the command line ferite tool
+ <li> Big clean up of the native api
+ <ul>
+   <li> More convinience functions
+   <li> More macros for easy of use
+   <li> All functions now start with ferite rather than __ferite
+ </ul>
+  <li> generate-module - a tool to allow the easy deployment of third party modules
+  <li> feritedoc - a javadoc like tool for generating documentation in various
+      formats, currently only text and html are outputed. [used for the api docs]
+  <li> New system module, providing a complete stream interface, test suite,
+      serialization, and threading libraries. See the API docs for more
+information.
+  <li> More test scripts
+    <li> Variable accessors allowing for tracking of variable changes in native
+code
+  <li> Hundreds of bug fixes and clean ups
+  
+</ul>
+<br>
+We hope you enjoy :-) Please see the download page for obtaining instructions.
+</ul>
+
+<b>July 2nd 2002</b> feature freeze
+<ul>
+ferite 0.99.5 will be released at the end of this week, cvs represents the
+current state of affairs and only bug fixes will be changed. Just to let
+you know.
+</ul>
+
+<b>June 7th 2002</b> still alive
+<ul>
+We are still alive, bug fixing and keeping things tidy. We should be have a
+release for you soon. Expect nice things. ferite is much more <i>real</i>
+than before, other releases look like technology demos compared to the 
+current code base. In other words, we are all very happy with the way it
+has progressed!
+</ul>
+
+<b>April 23rd 2002</b> providor change
+<ul>
+Due to issues the site was down for a short while because of dns changing.
+We also changed the box the site is hosted on at the same time. Sorry for
+the issues.
+</ul>
+
+<b>April 18th 2002</b> toys
+<ul>
+ferite cvs is coming along very nicely with various toys being developed
+to make it even more powerfull than a very powerfull thing. Like a medium
+sized pony, or a tractor. But enough, what are these features? Multi threading
+- ferite can run multiple scripts within the same engine, and also run multiple
+threads per script. There is a thread class, atomic variables and methods
+[these give the ability to have critical sections, and also have variables
+where all operations done on them are atomic!]. Writing a threaded script is
+ever so simple - simply inherit from the <b>Thread</b> class and implement
+a <b>run()</b> method. See <a href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/ferite/ferite/scripts/test/thread.fe?rev=1.2&content-type=text/vnd.viewcvs-markup">here</a>
+for the example. Ferite can also store binary data in strings - which makes
+processing of data easier. There is a new range operator allowing for
+manipulation, and the "-&gt;" operator has been removed. The underlying API 
+has been cleaned up, bugs fixed and all in all ferite is moving along nicely.
+There is a stream framework in the pipeline and the modules are being cleaned
+up. 0.99.5 is going to be a very big release and quite exciting :).<br>
+<br>
+I just want to thank <b>ntropy</b> and <b>Stephan Engström</b> for their continual help.
+</ul>
+
+<b>March 6th 2002</b> marching along slowly
+<ul>
+Work is going along, but a bit slow at the minute due to real world
+commitments - things should pick up in week or two. On another note, if you
+want to link to ferite.org you can use the image on the left, and use the
+code:<br>
+<br>
+<b>
+&lt;a href="http://www.ferite.org"&gt;&lt;img border=0 src="http://images.ferite.org/ferite-dot-org.gif" alt="ferite language"&gt;&lt;/a&gt;
+</b>
+</ul>
+<b>February 8th 2002</b> still alive
+<ul>
+Work is still happening quietly in the background, there is new faster array
+code in cvs - which reduces memory overhead aswell, there is a new module
+system that is about 1000% more flexible and uses less memory. Things are
+progressing nicely and I am sure there will be a release at somepoint in the
+future - sooner rather than later.
+</ul>
+
+<b>January 13th 2002</b> ferite in debian unstable
+<ul>
+You can now get ferite using <b>apt</b>. To play do: <i>apt-get install
+ferite</i>. Have fun :)
+</ul>
+
+<b>January 9th 2002</b> ferite <b>0.99.4</b> has been released.
+<ul>
+This has a number of features and in summary:<br>
+<br>
+<i>"Cleaner and better native side API, builder enhancements,
+new library loader system, module changes, new: ipc, reflection, speech,
+improved: file, string and system modules. Enhancements to the language
+including array initialisers, switch statement, the ability to assign
+initial values to global, class and namespace variables. ANSI C clean
+ups, and a number of critical fixes within the compiler and the executor.
+There are also hundreds of little fixes making this a much cleaner and
+stable release than before."</i><br>
+<br>
+This release is a highly recommend release - it provides a much cleaner
+system and should be alot more usable. Go fetch it off the downloads page.<br>
+</ul>
+
+<b>January 8th 2002</b> happy new year, release soon
+<ul>
+Happy Belated New Year - things have been happening and happening fast.
+Development has slowed to bug fixing and clean ups to make cvs more
+releasable. This should be occuring soon (later than I wanted but hey thats
+life). <b>0.99.4</b> will be a much more solid release than before with more
+API, greater stability, more goodies, less dependancy hell. It also will allow
+a sync in api on the native side of things allowing applications to be using
+either cvs or release ferite and not worry :).<br>
+<br>
+If you find any serious bugs in cvs please let us know.<br>
+<br>
+Thanks, Chris Ross.
+</ul>
+
+<b>December 29th 2001</b> - syntax files for editors, development update, new
+document
+<ul>
+I have added two syntax hi-light files for you to download. The first is for
+<b><a href="http://www.vim.org">vim</a></b> it can be found <a
+href="files/ferite_vim.tar.gz">here</a> and was created by ymer. The second is
+for <b><a href="http://kate.sourceforge.net/">Kate</a></b> and it can be 
+found <a href="files/ferite_kate.tar.gz">here</a>, and was create by
+myself.<br>
+<br>
+Development has been progressing nicely with bigger and better string, file,
+reflection and system modules, compiler fixes, source clean ups, more flexibility, memory
+usage and tweaking abilities, switch statement, plus a whole host of other
+goodies. Please check out the <a
+href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/ferite/ferite/ChangeLog?rev=1.124&content-type=text/vnd.viewcvs-markup">ChangeLog</a>.
+We are now preparing to go for the <b>0.99.4</b> release of ferite.<br>
+<br>
+For those of you wanting to use ferite in your application please see the
+document that is on the developer's page - this should give you a good base
+point to start.
+</ul>
+
+<b>November 18th 2001</b> - module generator updated
+<ul>
+I have updated the tool - this fixes some issues with the .fec file being
+modified and builder rebuilding it. You can grab a copy here <a
+href="files/generate-module-0.2.tar.gz">here</a>. Please read the README file
+in the package.
+</ul>
+
+<b>November 17th 2001</b> - another tool to help developers
+<ul>
+I have create a tool that will take a <b>.fec</b> file and generate a tarball
+so that it can be distributed and installed on other systems. It's new and
+probably breaks all over the place, but you can grab a copy here <a
+href="files/generate-module-0.1.tar.gz">here</a>. Please read the README file
+in the package.
+</ul>
+
+<b>November 15th 2001</b> - ferite <b>0.99.3</b> has been released.
+<ul>
+This has a number of features and in summary:<br>
+<br>
+<i>"More documentation, variable argument lists, autoload methods in classes,
+runtime script inclusion, memory leak fixes along with a few other bug fixes,
+cleaner build system.."</i><br>
+<br>
+You can get this from the downloads page. The main motivation for this quick
+release was to get the new powerful features out into the field. The next
+release will probably be futher away.
+</ul>
+
+<b>November 14th 2001</b> - ferite in FreeBSD ports tree
+<ul>
+ferite has made it into the <a href="http://www.freshports.org/port-description.php3?port=6386">FreeBSD Ports Tree</a>. Go see the
+link for information. There is also a <b>darwin</b> port in progress by
+<b>ntropy</b>.
+</ul>
+
+<b>November 13th 2001</b> - Known Issues and Example Code
+<ul>
+There are known issues with the <b>0.99.2</b> release of ferite. This is due
+to the build system and will give you grief unless you have ferite previoulsy
+installed. There are two options, <b>1</b> Install cvs - the instructions are
+on the downloads page, <b>2</b> Wait for <b>0.99.3</b> which should be out at
+the end of the week. We do apologise for the mess up.<Br>
+<br>
+On the other side several features have been added to CVS, an preliminary
+<b>include()</b> operator to allow for dynamic inclusion of other scripts,
+<a
+href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/ferite/ferite/scripts/test/autoload.fe?rev=1.1&content-type=text/vnd.viewcvs-markup">autoloading
+of methods</a> - this allows you to specify a method to be called in
+a class when the function being called doesn't exist, and <a
+href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/ferite/ferite/scripts/test/var_args.fe?rev=1.2&content-type=text/vnd.viewcvs-markup">variable
+argument
+lists.</a><br>
+</ul>
+
+<b>November 12th 2001</b> - ferite <b>0.99.2</b> has been released.
+<ul>
+This has a number of features and in summary:<br>
+<br>
+<i>"Hexadecimal numbers have been added to the compiler, The operators left
+and right shift, bitwise or, and and xor have been added, as well as unary
+'+' and '-' operators. This release has much better support for Solaris and
+other unices, a regex /e modfier, additions to the builder application to
+allow for better modules, more documentation (and converted to SGML), and
+cleaner C / Macro namespace to avoid conflicts with applications. Some
+existing operators have been cleaned up."</i><br>
+<br>
+You can get this from the downloads page.
+</ul>
+
+
+<?include templates/footer.html ?>

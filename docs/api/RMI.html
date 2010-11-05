@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>namespace RMI</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h2>namespace RMI</h2>
+<p><b>Provided By</b>: <a href="file:/cention/lib/ferite/module-source/rmi.fe">rmi.fe</a></p>
+<p>The top-level namespace for the Remote Method Invocation framework </p>
+<h4>Description</h4>
+<p>Using this framework it is possible to connect and also export objects  to be accessed across any protocol, translation or transport layer. Object access is transparent to the programmer who can treat the services like locally created objects. <p> The framework consists of a set of layers. The protocol layer, the translation  layer and finally the transport layer. The protocol layer translates the  attribute access and method calls into a form that can be passed onto the  translation layer. The translation layer provides a slot between the transport  layer and the protocol to do extra processing. By default this layer does not  do anything. If can be used to add encryption or other data transforms. The  transport layer provides the comunication layer between client and server. </p>
+<h4>Example</h4>
+Server-side: <br />
+<br />
+<div class="code"> <span class="keyw">uses</span> "console", "rmi", "sys";<br />
+ <br />
+ <span class="keyw">class</span> SomeService<br />
+ {<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">string</span> someValue;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">function</span> SomeService( <span class="type">string</span> value )<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.someValue = value;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">function</span> getValue()<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">return</span> .someValue;<br />
+ }<br />
+ <br />
+ <span class="type">string</span> host = "localhost";<br />
+ <br />
+ <span class="keyw">if</span>( Array.size(<span class="keyw">argv</span>) &gt; 0 )<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;host = <span class="keyw">argv</span>[0];<br />
+ <br />
+ RMI.createService( "SomeResource", <span class="keyw">new</span> SomeService( "If you can see this \"RMI\" is working!" ) );<br />
+ RMI.addServiceListener( "::tcpip", "bind:$host:" );<br />
+ RMI.listen();</div> <p> Client-side:<br />
+<div class="code"> <span class="keyw">uses</span> "console", "rmi", "<span class="type">array</span>";<br />
+ <br />
+ <span class="type">object</span> o = <span class="type">null</span>, p;<br />
+ <span class="type">string</span> host = "localhost";<br />
+ <br />
+ <span class="keyw">if</span>( Array.size(<span class="keyw">argv</span>) &amp;gt; 0 )<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;host = <span class="keyw">argv</span>[0];<br />
+ <br />
+ o = RMI.connectToService( "::tcpip", "connect:$host:", "SomeResource" );<br />
+ <span class="keyw">if</span>( o != <span class="type">null</span> )<br />
+ {<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;Console.println( "Testing o" );<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;Console.println( "Return from o.getValue() == '${o.getValue()}'" );<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;Console.println( "o.someValue = '${o.someValue}'" );<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;o.attribute_set( "someValue", "Harrow Taxi Driver" );<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;Console.println( "o.someValue = '${o.someValue}'" );&nbsp;&nbsp;&nbsp;&nbsp;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;o.someValue = "Toothy Hurty";<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;Console.println( "o.someValue = '${o.someValue}'" );&nbsp;&nbsp;&nbsp;&nbsp;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;Console.println( "Return from o.getValue() == '${o.getValue()}'" );<br />
+ }<br />
+ </div><br />
+   
+<a name="container_elements">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><b>namespace contents</b></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=mainrow>Namespaces</td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="namespace.png" alt="namespace" style="vertical-align: middle;"> <a href="RMI.Error.html">Error</a> - Error return values. When an error occurs the err.num will be equal to one of these     </td></tr>
+<tr><td width="100%" valign=middle class=mainrow>Functions</td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.addServiceListener.2">addServiceListener</a><b>(string,string)</b> - This function creates a service listening given a protocol stack. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.connectToService.3">connectToService</a><b>(string,string,string)</b> - This function connects to RMI server and provides an object to interact with that service. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.createService.2">createService</a><b>(string,object)</b> - Create a service for an object with a specified name </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.getService.1">getService</a><b>(string)</b> - Get a reference to an object for a given service name </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.iterate.0">iterate</a><b>()</b> - Go through each of the non-blocking connections and run them to check for connections	 </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.listen.1">listen</a><b>(number)</b> - This is the main loop the RMI system travels in. Call this function to start the magic. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.listen.0">listen</a><b>()</b> - This is the main loop the RMI system travels in. Call this function to start the magic. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.registerProtocolLayer.2">registerProtocolLayer</a><b>(string,string)</b> - Register a class as a protocol layer </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.registerTranslationLayer.2">registerTranslationLayer</a><b>(string,string)</b> - Register a class as a translation layer </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.registerTransportLayer.2">registerTransportLayer</a><b>(string,string)</b> - Register a class as a transport layer </td></tr>
+</table></td></tr></table><br>
+<h4>Functions</h4>
+<a name="object.addServiceListener.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>addServiceListener</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>This function creates a service listening given a protocol stack. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function addServiceListener( string protocols, string url ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>The result of this function is the creation of a service listener that can provide access to any of the previously created services. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>protocols</b> - The protocols to use to listen for the remote service connection, e.g. ::tcpip </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>url</b> - The listen url to pass to the protocol stack specified in the previous parameter. Given the previous example, bind:locahost:. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Example:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow><div class="code">RMI.addServiceListener( "::tcpip", "bind:locahost:" );</div>     </td></tr>
+</table></td></tr></table><br>
+<a name="object.connectToService.3">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>connectToService</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>This function connects to RMI server and provides an object to interact with that service. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function connectToService( string protocols, string url, string service ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>protocols</b> - The protocols to use to connect to the remote service, e.g. ::tcpip </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>url</b> - The connection url to pass to the protocol stack specified in the previous parameter. Given the previous example, connect:host. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #3: string <b>service</b> - The name of the service to connect to. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;An object connected to the service, null otherwise. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Example:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow><div class="code">object o = RMI.connectToService( "::tcpip", "connect:localhost:", "SomeResource" );</div>     </td></tr>
+</table></td></tr></table><br>
+<a name="object.createService.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>createService</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Create a service for an object with a specified name </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function createService( string name, object service ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This is the corner stone of any nutritious  rmi session.  Any service that is created can be viewed from any listening post. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>name</b> - The name of the service to create </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: object <b>service</b> - The object to bind the service to. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Example:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow><div class="code">RMI.createService("SomeResource",someObject);</div>     </td></tr>
+</table></td></tr></table><br>
+<a name="object.getService.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>getService</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Get a reference to an object for a given service name </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function getService( string name ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>name</b> - The name of the service to get a handle of </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The service object if it exists, null otherwise.     </td></tr>
+</table></td></tr></table><br>
+<a name="object.iterate.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>iterate</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Go through each of the non-blocking connections and run them to check for connections	 </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function iterate() </td></tr>
+</table></td></tr></table><br>
+<a name="object.listen.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>listen</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>This is the main loop the RMI system travels in. Call this function to start the magic. </td></tr>
+<tr><td width="100%" valign=middle class=warningrow><img src="warning.png" style="vertical-align: middle;"> Warning!</td></tr>
+<tr><td width="100%" valign=middle class=secondrow>Every 30 seconds, the function will cause the GC to be executed. This is to stop object build up	            as a result of the threads within the system. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function listen( number block ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: number <b>block</b> - Pass true to have the function block and automatically iterate over the non blocking listeners. Pass false to have the function setup the threads for the blocking listeners. You will have to manually  call RMI.iterate() to provide the non-blocking service. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;This function never returns if block is true.     </td></tr>
+</table></td></tr></table><br>
+<a name="object.listen.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>listen</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>This is the main loop the RMI system travels in. Call this function to start the magic. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function listen() </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;This function never returns.     </td></tr>
+</table></td></tr></table><br>
+<a name="object.registerProtocolLayer.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>registerProtocolLayer</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Register a class as a protocol layer </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function registerProtocolLayer( string name, string klass ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>The aim of the protocol layer is to encode and decode the rmi aspects of the language. For instance it takes a method call with a set of arguments gets encoded on the client side, given to the translation layer who hands it to the transport and then hands it to the server (who does the reverse). The protocol layer doesn't need to worry about translation or transport. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>name</b> - The name of the layer, e.g. std, xml </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>klass</b> - The name of the ferite class representing the protocol     </td></tr>
+</table></td></tr></table><br>
+<a name="object.registerTranslationLayer.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>registerTranslationLayer</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Register a class as a translation layer </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function registerTranslationLayer( string name, string klass ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>The translation layer is the middle man between the top level protocol layer and the transport layer. For the most part the translation layer need not intervene in the rmi communication stack unless specific encoding is required: for instance encrypted data. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>name</b> - The name of the layer, e.g. std, ssl </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>klass</b> - The name of the ferite class representing the translation     </td></tr>
+</table></td></tr></table><br>
+<a name="object.registerTransportLayer.2">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>registerTransportLayer</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Register a class as a transport layer </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function registerTransportLayer( string name, string klass ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>The transport layer is the bottom man between the beneath the translation layer. It is the job of the transport layer to communicate between the client and the server. It should be noted that the default port for the tcpip layer is 2048. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>name</b> - The name of the layer, e.g. tcpip </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: string <b>klass</b> - The name of the ferite class representing the transport     </td></tr>
+</table></td></tr></table><br>
+<font face=arial size=2>Automatically generated at <i>10:10AM, Friday 05 November 2010</i> by <i>feritedoc</i>.</font>
+</body></html>

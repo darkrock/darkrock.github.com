@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>class Embfer</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h2>class Embfer</h2>
+<p><b>Provided By</b>: <a href="file:/cention/lib/ferite/module-source/embfer.fec">embfer.fec</a></p>
+<p>An interface to the embedded ferite interpreter. </p>
+<h4>Description</h4>
+<p>Using Embfer it is possible to take a textual document with embedded tags and generate a ferite script that will generate the output with the tags evaluated. You can either save the output to disk or use the eval() operator in ferite to execute it.<br />
+ <br />
+ &lt;? <i>code</i> ?&gt; - execute the code within the block as it stands.<br />
+ &lt;?= <i>expression</i> ?&gt; - generate code to output the expression.<br />
+ &lt;?# <i>comment</i> ?&gt; - in place comment which will be removed when the generated script is run.<br />
+ <br />
+ This is an example embfer document: <br />
+<div class="code"> &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;<br />
+ &lt;html&gt;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&lt;head>&lt;title&gt;embfer test&lt;/title&gt;&lt;/head&gt;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;embfer test&lt;/h1&gt;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;? Console.println( "hello world" ); ?&gt;&lt;br /&gt;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Current time: &lt;?= Sys.getBuildDate() ?&gt;&lt;br /&gt;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?# this is a comment line. ?&gt;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;?= Embfer.import( "foo.fsp" ) ?&gt;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br />
+ &lt;/html&gt;<br />
+ </div><br />
+ Running this through embfer will generate a ferite script that, when run, will output something lile this:<br />
+<br />
+<div class="code"> &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;<br />
+ &lt;html&gt;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;&lt;title&gt;embfer test&lt;/title&gt;&lt;/head&gt;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;embfer test&lt;/h1&gt;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hello world&lt;br /&gt;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Current time: Dec 12 2004 15:23:34&lt;br /&gt;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FOO<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br />
+ &lt;/html&gt;<br />
+ </div><br />
+  The example will bellow should show you how to process an embfer file.  </p>
+<h4>Example</h4>
+<div class="code"> <span class="keyw">uses</span> "embfer", "regexp";<br />
+ <br />
+ <span class="keyw">global</span> {<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">array</span> tagvalues;<br />
+ }<br />
+ <br />
+ <span class="type">object</span> compiler = <span class="keyw">new</span> Embfer();<br />
+ <span class="keyw">monitor</span> {<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;Embfer.registerTagHandler( "get" ) <span class="keyw">using</span> ( tag, contents ) {<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">return</span> "Console.println(\"${tagvalues[String.trim(contents,' ')]}\");";<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;};<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;Embfer.registerTagHandler( "set" ) <span class="keyw">using</span> ( tag, contents ) {<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="type">object</span> match = Regexp.match( '[ \t]*([A-Za-z-_]+)=\"([^"]+)\"', contents );<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">if</span>( match != <span class="type">null</span> )<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tagvalues[match.capture(0)] = match.capture(1);<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;};<br />
+ <br />
+ &nbsp;&nbsp;&nbsp;&nbsp;compiler.setOutputFunction( "Console.println" );<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">eval</span>( compiler.fromFile(<span class="keyw">argv</span>[0]) );<br />
+ <br />
+ } <span class="keyw">fix</span> {<br />
+ &nbsp;&nbsp;&nbsp;&nbsp;Console.println( "&lt;b&gt;Error:&lt;/b&gt; ${err.str}" );<br />
+ }</div><br />
+
+<a name="container_elements">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><b>class contents</b> [<i>NB. Highlighted attributes are static members</i>]</td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=mainrow>Functions</td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.fromFile.1">fromFile</a><b>(string)</b> - Set the source of embfer to be the named disk file. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.fromString.1">fromString</a><b>(string)</b> - Set the source of embfer to be the source provided in teh string. </td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#class.import.1">import</a><b>(string)</b> - Import the named file inplace of the code </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.registerTagHandler.1">registerTagHandler</a><b>(string)</b> - Use this function to register a custom closure to handle a tag. </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.setOutputFunction.1">setOutputFunction</a><b>(string)</b> - The name of the function embfer should use as the output from the compiling. </td></tr>
+</table></td></tr></table><br>
+<h4>Functions</h4>
+<a name="object.fromFile.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>fromFile</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Set the source of embfer to be the named disk file. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function fromFile( string filename ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>file</b> - The name of the file.     </td></tr>
+</table></td></tr></table><br>
+<a name="object.fromString.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>fromString</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Set the source of embfer to be the source provided in teh string. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function fromString( string code ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>code</b> - The code.     </td></tr>
+</table></td></tr></table><br>
+<a name="class.import.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=statictitle>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=statictitle>
+	<tr><td class=statictitle><img src="function.png" style="vertical-align: middle;"> static function <b>import</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Import the named file inplace of the code </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;static function import( string filename ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>filename</b> - The filename to import. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The imported file having been processed by embfer.     </td></tr>
+</table></td></tr></table><br>
+<a name="object.registerTagHandler.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>registerTagHandler</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Use this function to register a custom closure to handle a tag. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;static function registerTagHandler( string str ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>To make life easy, it is sometimes wanted to have custom tags. Embfer provides a nice     way of registering tags. You need to call this function providing a closure with using. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>str</b> - The name of the tag. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Example:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow><br />
+<div class="code">     Embfer.registerTagH<span class="keyw">and</span>ler( "upper<span class="keyw">case</span>" ) <span class="keyw">using</span> ( tag, contents ) {<br />
+     &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">return</span> String.toUpper(String.trim(contents,' '));<br />
+     };</div>     <br />
+     To use the defined tag:<br />
+<br />
+     <div class="code">&lt;?upper<span class="keyw">case</span> hi there ?&gt;</div><br />
+     </td></tr>
+</table></td></tr></table><br>
+<a name="object.setOutputFunction.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>setOutputFunction</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>The name of the function embfer should use as the output from the compiling. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function setOutputFunction( string function ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>function</b> - The name of the function, e.g. Console.println.     </td></tr>
+</table></td></tr></table><br>
+<font face=arial size=2>Automatically generated at <i>10:10AM, Friday 05 November 2010</i> by <i>feritedoc</i>.</font>
+</body></html>

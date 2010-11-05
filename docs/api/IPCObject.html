@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>class IPCObject</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h2>class IPCObject</h2>
+<p><b>Provided By</b>: <a href="file:/cention/lib/ferite/module-source/ipc.fec">ipc.fec</a></p>
+<p>Provides an interface to Unix SysV style shared memory </p>
+<h4>Description</h4>
+<p>This class can be used to provide a means of accessing SysV style shared memory areas for interprocess communication. As well as allowing Ferite processes to communicate with each other, it can also be used to communicate with any other applications which use SysV style shared memory. </p>
+<h4>Example</h4>
+<div class="code"> <span class="keyw">uses</span> "console", "ipc", "string";<br />
+ <br />
+ <span class="type">object</span> myipc;<br />
+ <span class="type">number</span> shmid;<br />
+ <span class="type">number</span> option = 1;<br />
+ <span class="type">string</span> data;<br />
+ <br />
+ myipc = <span class="keyw">new</span> IpcObject();<br />
+ <br />
+ Console.println ("::Connecting...");<br />
+ myipc.connect ("/bin/sh");<br />
+ <br />
+ Console.println ("Choose one of the following options");<br />
+ <br />
+ <span class="keyw">while</span> (option != 0)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Console.println ("\n0 - QUIT");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Console.println ("1 - Write to shm");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Console.println ("2 - Read from shm");<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;option = String.toLong (Console.readln());<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Console.println("");<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">switch</span>( option )<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;  <span class="keyw">case</span> 1:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.println ("Type something to put in the shared memory segment:");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data = Console.readln();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myipc.write (data);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.println ("\n>>>Wrote: $data");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">break;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;  <span class="keyw">case</span> 2:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data = myipc.read();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.println (">>>Got: $data");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyw">break</span>;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;  <span class="keyw">case</span> 0:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;  <span class="keyw">default</span>:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.println ("Invalid Option. Please choose either 0, 1 or 2");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}<br />
+ <br />
+ myipc.disconnect();<br />
+ <br />
+ </div><br />
+ 
+<a name="container_elements">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><b>class contents</b> [<i>NB. Highlighted attributes are static members</i>]</td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=mainrow>Functions</td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.connect.1">connect</a><b>(string)</b> - Connects to a shared memory segment </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.disconnect.0">disconnect</a><b>()</b> - Disconnects from a shared memory segment and possibly deletes it  </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.read.0">read</a><b>()</b> - Reads a string from the shared memory segment </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.take.0">take</a><b>()</b> - Take the contents of the memory segment, this reads and then clears the shared segment </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.write.1">write</a><b>(string)</b> - Writes a message string to the shared memory segment </td></tr>
+</table></td></tr></table><br>
+<h4>Functions</h4>
+<a name="object.connect.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>connect</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Connects to a shared memory segment </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function connect( string file ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function tries to connect to the specified shm key. If it does not exist, it will try to create it. If an error occurs, it will set the err object values and return false. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>file</b> - The name of the file to attach the shm segment to. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;true on success, false otherwise     </td></tr>
+</table></td></tr></table><br>
+<a name="object.disconnect.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>disconnect</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Disconnects from a shared memory segment and possibly deletes it  </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function disconnect( ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function disconnects the object from its shared memory segment. If no other process is connected to the segment it will be deleted. If an error occurs, it will set the err object values and return false. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;true on success, false otherwise    </td></tr>
+</table></td></tr></table><br>
+<a name="object.read.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>read</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Reads a string from the shared memory segment </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function read( ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;A string containing the data which was read from the segment, empty if failure to read.     </td></tr>
+</table></td></tr></table><br>
+<a name="object.take.0">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>take</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Take the contents of the memory segment, this reads and then clears the shared segment </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;The contents of the segment as a string, empty on failure     </td></tr>
+</table></td></tr></table><br>
+<a name="object.write.1">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>write</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Writes a message string to the shared memory segment </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function write( string msg ) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>If an error occurs, it will set the err object values and return false. </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>msg</b> - The message string to write to the shared memory segment </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Returns:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;true on success, false otherwise        </td></tr>
+</table></td></tr></table><br>
+<font face=arial size=2>Automatically generated at <i>10:10AM, Friday 05 November 2010</i> by <i>feritedoc</i>.</font>
+</body></html>

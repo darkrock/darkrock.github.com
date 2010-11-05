@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <title>namespace Network.UDP</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<h2>namespace UDP</h2>
+<p><b>Provided By</b>: <a href="file:/cention/lib/ferite/module-source/network.fec">network.fec</a></p>
+<p>The UDP namespace provides a set of tools to access udp streams </p>
+<a name="container_elements">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><b>namespace contents</b></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=mainrow>Classes</td></tr>
+<tr><td width="100%" valign=middle class=staticrow><img src="class.png" alt="class" style="vertical-align: middle;"> <a href="Network.UDP.Stream.html">Stream</a> - Used for sending and receiving UDP datagrams </td></tr>
+<tr><td width="100%" valign=middle class=mainrow>Functions</td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.bind.3">bind</a><b>(string,number,number)</b> - Binds the socket to the specified IP and port </td></tr>
+<tr><td width="100%" valign=middle class=secondrow><img src="function.png" alt="function" style="vertical-align: middle;"> <a href="#object.connect.3">connect</a><b>(string,number,number)</b> - Sets the default destination of the socket </td></tr>
+</table></td></tr></table><br>
+<h4>Functions</h4>
+<a name="object.bind.3">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>bind</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Binds the socket to the specified IP and port </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function bind(string host, number port) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function binds the socket to a specific IP and port (although the IP can be Network.ANY which means "listen to every IP address on the machine").                         You do not need to listen() or accept() like TCP sockets.                        If the address family is Network.AF_IPV4, bind will look for an IPV4 address with that name and fail if it doesn't find one. If it is Network.AF_IPV6, it will look for an IPV6 address and fail if it doesn't find one. If it is Network.AF_AUTO, it will try to find an IPV6 address, then try to find an IPV4 address, and only fail if it doesn't find either. Note: you can leave off the af parameter if you wish, and it will default to Network.AF_AUTO.         </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>host</b> - The hostname or IP to listen on, or Network.ANY </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: number <b>port</b> - The port number to listen on </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #3: number <b>af</b> - The address family to use </td></tr>
+</table></td></tr></table><br>
+<a name="object.connect.3">
+<table border=0 cellpadding=1 cellspacing=0 width="100%" class=border><tr><td class=title>
+  <table width="100%" border=0 cellspacing=0 cellpadding=3 class=title>
+	<tr><td class=title><img src="function.png" style="vertical-align: middle;"> function <b>connect</b> <a href="#container_elements"><img src="back.png" alt="Click to go up to the list" border=0></a></td></tr>
+  </table>
+  <table width="100%" border=0 cellspacing=1 cellpadding=3 class=contents>
+<tr><td width="100%" valign=middle class=secondrow>Sets the default destination of the socket </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Declaration:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;function connect(string host, number port) </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Description:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>This function creates a usp stream and sets the default destination of the UDP socket. Note that it does not actually connect to the remote server or indeed even communicate with it in any way. If the address family is Network.AF_IPV4, connect will look for an IPV4 address with that name and fail if it doesn't find one. If it is Network.AF_IPV6, it will look for an IPV6 address and fail if it doesn't find one. If it is Network.AF_AUTO, it will try to find an IPV6 address, then try to find an IPV4 address, and only fail if it doesn't find either. Note: you can leave off the af parameter if you wish, and it will default to Network.AF_AUTO.         </td></tr>
+<tr><td width="100%" valign=middle class=mainrow><i>Parameters:</i></td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #1: string <b>host</b> - The hostname or IP of the destination </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #2: number <b>port</b> - The destination port number </td></tr>
+<tr><td width="100%" valign=middle class=secondrow>&nbsp;&nbsp;&nbsp;&nbsp;Parameter #3: number <b>af</b> - The address family to use (Network.AF_IPV4 or Network.AF_IPV6) </td></tr>
+</table></td></tr></table><br>
+<font face=arial size=2>Automatically generated at <i>10:10AM, Friday 05 November 2010</i> by <i>feritedoc</i>.</font>
+</body></html>

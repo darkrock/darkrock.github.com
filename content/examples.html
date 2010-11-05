@@ -75,6 +75,16 @@ Output:
 
 <blockquote><pre>512</pre></blockquote>
 
+ferite is flexible with function syntax, here is the same function showing the different styles:
+
+<blockquote><pre>function t return 10;
+
+function t() return 10;
+
+function t() {
+	return 10;
+}</pre></blockquote>
+
 <h2>Namespaces</h2>
 
 What does a namespace look like ?
@@ -153,8 +163,7 @@ Variable argument lists ? Easy!
     Console.println( "test() called with ${Array.size(fncArgs)} args" );
     Console.println( "format: $fmt" );
 
-    for( i = 0; i &lt; Array.size(fncArgs); i++ )
-    {
+    for( i = 0; i &lt; Array.size(fncArgs); i++ ) {
         Console.println( "Arg[$i]: ${fncArgs[i]}" );
     }
 }
@@ -164,13 +173,38 @@ Variable argument lists ? Easy!
 
 Sometimes problems can occur, and sometimes you want to catch the issues!
 
-<blockquote><pre>iferr {
+<blockquote><pre>monitor {
     /* some code that might go wronf */
-} fix {
+} handle {
     /* Tidy up! */
 } else {
     /* If we have no error, lets do some different cleaning up */
 }</pre></blockquote>
+
+<h2>Directives</h2>
+
+Directives are compile time functions providing a powerful means to create and act on structured annotations. The example below shows how it is possible to use directives to easily and quickly add private variables with a generic get function built for you.
+
+<blockquote><pre>class modifies Obj {
+
+   directive reader( string type, string name ) {
+      eval( "
+         class modifies ${Class.name(self)} {
+            private $type $name;
+            function get$name() {
+               return .$name;
+            }
+         }" );
+   }
+}
+
+class Example {
+   [reader number X];
+   [reader string Y];
+   [reader boolean Z];
+}</pre></blockquote>
+
+The directive declaration defines the directive, and the [square brackets notation] invokes it.
 
 <h2>Loops</h2>
 

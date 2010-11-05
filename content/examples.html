@@ -12,7 +12,7 @@ We start of with simple expressions with variables, functions, objects, classes,
 
 <p>We hope that you enjoy the ride and end up with a better feel for ferite!</p>
 
-<h2>Hello World</h2>
+<h4>Hello World</h4>
 
 We start out with the famous <b>Hello World</b> program. The program prints out the words <b>Hello World</b> to standard out (where most text ends up).
 
@@ -23,7 +23,7 @@ Output:
 
 <blockquote><pre>Hello World</pre></blockquote>
 
-<h2>Numbers, Strings, Arrays</h2>
+<h4>Numbers, Strings, Arrays</h4>
 
 The code:
 
@@ -59,7 +59,7 @@ Taking it a little further, we can even place expressions in there!
 <blockquote><pre>number x = 10, y = 20;
 string z = "The value of x plus y = ${x+y}";</pre></blockquote>
 
-<h2>Functions</h2>
+<h4>Functions</h4>
 
 The Code:
 
@@ -85,7 +85,7 @@ function t() {
 	return 10;
 }</pre></blockquote>
 
-<h2>Namespaces</h2>
+<h4>Namespaces</h4>
 
 What does a namespace look like ?
 
@@ -101,7 +101,7 @@ namespace modifies A {
     }
 } </pre></blockquote>
 
-<h2>Classes</h2>
+<h4>Classes</h4>
 
 What does a class look like ?
 
@@ -117,7 +117,7 @@ What does a class look like ?
     }
 } </pre></blockquote>
 
-<h2>Protocols</h2>
+<h4>Protocols</h4>
 
 A protocol is a contract, a bit of code that forces parts of a class to take on a certain structure.
 
@@ -131,13 +131,13 @@ class A implementes C {
     function getY() { return "Y"; }
 }</pre></blockquote>
 
-<h2>Objects</h2>
+<h4>Objects</h4>
 
 Object are just instances of a class. They look like this:
 
 <blockquote><pre>object o = new A();</pre></blockquote>
 
-<h2>Closures</h2>
+<h4>Closures</h4>
 
 Can you do the lambda ? ferites closures are the same as lambda terms, they do capturing! 
 
@@ -152,7 +152,7 @@ Or they can do iteration!
     Console.println( value );
 };</pre></blockquote>
 
-<h2>Variable Argument Lists</h2>
+<h4>Variable Argument Lists</h4>
 
 Variable argument lists ? Easy!
 
@@ -169,7 +169,7 @@ Variable argument lists ? Easy!
 }
 </pre></blockquote>
 
-<h2>Exception Handling</h2>
+<h4>Exception Handling</h4>
 
 Sometimes problems can occur, and sometimes you want to catch the issues!
 
@@ -181,7 +181,7 @@ Sometimes problems can occur, and sometimes you want to catch the issues!
     /* If we have no error, lets do some different cleaning up */
 }</pre></blockquote>
 
-<h2>Directives</h2>
+<h4>Directives</h4>
 
 Directives are compile time functions providing a powerful means to create and act on structured annotations. The example below shows how it is possible to use directives to easily and quickly add private variables with a generic get function built for you.
 
@@ -206,7 +206,7 @@ class Example {
 
 The directive declaration defines the directive, and the [square brackets notation] invokes it.
 
-<h2>Loops</h2>
+<h4>Loops</h4>
 
 And to finish this whistle-stop tour of ferite, here are the standard issue loops:
 
